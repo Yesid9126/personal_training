@@ -1,1 +1,1 @@
-from personal_training.courses import *
+from personal_training.courses import *  # noqa
