@@ -1,0 +1,50 @@
+{% extends "personal_training_base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <section class="user-area-style log-in-area ptb-100">
+    <div class="container">
+      <div class="contact-form-action">
+        <div class="account-title">
+          <h2>Registration</h2>
+        </div>
+        <form class="form-horizontal" method="post">
+          {% csrf_token %}
+          {% if form.errors %}
+            <p class="alert alert-danger">
+              {% for key, value in form.errors.items %}{{ value.0 }}{% endfor %}
+            </p>
+          {% endif %}
+          <div class="form-group">
+            <label for="username">Nombres</label>
+            {{ form.first_name }}
+          </div>
+          <div class="form-group">
+            <label for="userpassword">Apellidos</label>
+            {{ form.last_name }}
+          </div>
+          <div class="form-group">
+            <label for="useremail">Email</label>
+            {{ form.email }}
+          </div>
+          <div class="form-group">
+            <label for="useremail">Número de whatsapp</label>
+            {{ form.phone_number }}
+          </div>
+          <div class="form-group">
+            <label for="useremail">Contraseña</label>
+            {{ form.password }}
+          </div>
+          <div class="form-group">
+            <label for="useremail">Confirmar contraseña</label>
+            {{ form.password_confirmation }}
+          </div>
+          <div class="mt-4">
+            <button class="default-btn register" type="submit">Registrarme</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

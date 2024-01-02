@@ -1,0 +1,69 @@
+{% extends "personal_training_base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <section class="user-area-style log-in-area ptb-100">
+    <div class="container">
+      <div class="contact-form-action">
+        <div class="contact-form-action mb-50">
+          <div class="account-title">
+            <h2>Log in</h2>
+          </div>
+          <form method="post">
+            {% csrf_token %}
+            {% if form.errors %}
+              <p class="alert alert-danger">
+                {% for key, value in form.errors.items %}{{ value.0 }}{% endfor %}
+              </p>
+            {% endif %}
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label>Email or Phone</label>
+                  <input class="form-control"
+                         type="text"
+                         name="username"
+                         required
+                         id="id_username" />
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label>Password</label>
+                  <input class="form-control"
+                         type="password"
+                         name="password"
+                         required
+                         id="id_password" />
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="login-action">
+                  <span class="log-rem">
+                    <input id="remember" type="checkbox" />
+                    <label for="remember">Remember me!</label>
+                  </span>
+                  <span class="forgot-login">
+                    <a href="{% url 'users:password_reset' %}">Forgot your password?</a>
+                  </span>
+                </div>
+                <div class="login-action">
+                  <span class="forgot-login">
+                    Not a member?
+                    <a class="font-q" href="{% url 'users:signup' %}">Registration</a>
+                  </span>
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="default-btn" type="submit">
+                  <span>Log In</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

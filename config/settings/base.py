@@ -4,6 +4,10 @@ Base settings to build other settings files upon.
 from pathlib import Path
 
 import environ
+from djangocodemirror.settings import *  # noqa
+
+# from djangocodemirror.widgets import CodeMirrorAdminWidget
+
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # personal_training/
@@ -78,11 +82,14 @@ THIRD_PARTY_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "drf_spectacular",
+    "djangocodemirror",
 ]
 
 LOCAL_APPS = [
+    "personal_training.files",
     "personal_training.users",
     "personal_training.courses",
+    "personal_training.home",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -102,7 +109,7 @@ AUTHENTICATION_BACKENDS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
 AUTH_USER_MODEL = "users.User"
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
-LOGIN_REDIRECT_URL = "users:index"
+LOGIN_REDIRECT_URL = "home:index"
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
 LOGIN_URL = "account_login"
 
@@ -135,6 +142,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "personal_training.users.middlewares.SessionMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
@@ -310,3 +318,4 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
+LOGOUT_REDIRECT_URL = "users:login"

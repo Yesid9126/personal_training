@@ -1,0 +1,21 @@
+{% extends "personal_training_base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div class="page-title-area bg-18">
+    <div class="container">
+      <div class="page-title-content">
+        <h2>My Account</h2>
+        <ul>
+          <li>
+            <a href="{% url 'home:index' %}">Home</a>
+          </li>
+          <li>Pages</li>
+          <li>User</li>
+          <li class="active">My Account</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
