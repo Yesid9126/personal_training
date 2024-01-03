@@ -11,22 +11,26 @@
 
   // This function adds an event listener over the input image field (`my_field_image`).
   // If the user edits that field, the preview image will be updated.
-  let load_page = 1 // se deja aqui para evitar que la pagina intente cargarse varias
+  let load_page = 1; // se deja aqui para evitar que la pagina intente cargarse varias
   function changeInlineThumbnail() {
     const modelNmae = "{{ model_name }}";
     let fieldName = "{{ field_name }}";
-    let form_idx = document.getElementById(`id_${modelNmae}_set-TOTAL_FORMS`)?.value;
+    let form_idx = document.getElementById(
+      `id_${modelNmae}_set-TOTAL_FORMS`
+    )?.value;
 
     if (form_idx) {
-      console.log('****************')
-      console.log(form_idx)
+      console.log("****************");
+      console.log(form_idx);
       for (let i = 0; i < form_idx; i++) {
-        console.log('------------------')
-        console.log(i)
-        final_fieldName = `_set-${i}-${modelNmae}`
-        document.getElementById("image-thumbnail-{{ field_name }}").id += final_fieldName;
-        document.getElementById("image-link-{{ field_name }}").id += final_fieldName;
-        changeThumbnail('{{ field_name }}' + final_fieldName);
+        console.log("------------------");
+        console.log(i);
+        final_fieldName = `_set-${i}-${modelNmae}`;
+        document.getElementById("image-thumbnail-{{ field_name }}").id +=
+          final_fieldName;
+        document.getElementById("image-link-{{ field_name }}").id +=
+          final_fieldName;
+        changeThumbnail("{{ field_name }}" + final_fieldName);
       }
     } else {
       changeThumbnail("{{ field_name }}");
@@ -39,8 +43,10 @@
       .addEventListener("change", function(e) {
         const reader = new FileReader();
         reader.onload = function(e) {
-          document.getElementById(`image-thumbnail-${fieldName}`).src = e.target.result;
-          document.getElementById(`image-link-${fieldName}`).src = e.target.result;
+          document.getElementById(`image-thumbnail-${fieldName}`).src =
+            e.target.result;
+          document.getElementById(`image-link-${fieldName}`).href =
+            e.target.result;
         };
         reader.readAsDataURL(this.files[0]);
       });
@@ -55,7 +61,10 @@
   // In that case, need to wait for the document to be ready before adding the
   // event listener defined in `changeThumbnail`.
   function docReady(fn) {
-    if (document.readyState === "complete" || document.readyState === "interactive") {
+    if (
+      document.readyState === "complete" ||
+      document.readyState === "interactive"
+    ) {
       setTimeout(fn, 1);
     } else {
       document.addEventListener("DOMContentLoaded", fn);

@@ -2,7 +2,8 @@
 
 {% load static %}
 
-{% block preload %}
+{% block preload
+  %}
   <!-- Start Preloader Area -->
   <!-- End Preloader Area -->
 {% endblock preload %}
@@ -113,15 +114,15 @@
   <section class="expertise-area pt-100 pb-70">
     <div class="container">
       <div class="section-title">
-        {% if home.secondsection and home.secondsection.title %}
-          <h2>{{ home.secondsection.title }}</h2>
+        {% if home.Section2 and home.Section2.title %}
+          <h2>{{ home.Section2.title }}</h2>
         {% else %}
           <h2>Our Main Areas of Expertise</h2>
         {% endif %}
       </div>
-      {% if home.secondsection.carousels and home.secondsection.ss_carousels %}
+      {% if home.Section2.carousels and home.Section2.ss_carousels %}
         <div class="row">
-          {% for carousel in home.secondsection.ss_carousels %}
+          {% for carousel in home.Section2.ss_carousels %}
             <div class="col-lg-4 col-md-6">
               <div class="single-expertise">
                 <img src="{{ carousel.image.url }}" alt="Image" />
@@ -278,14 +279,14 @@
       <div class="row align-items-center">
         <div class="col-lg-6">
           <div class="why-choose-us-content">
-            {% if home.thirdsection and home.thirdsection.title %}
-              <h2>{{ home.thirdsection.title }}</h2>
+            {% if home.Section3 and home.Section3.title %}
+              <h2>{{ home.Section3.title }}</h2>
             {% else %}
               <h2>The Nutrition Professionals</h2>
             {% endif %}
-            {% if home.thirdsection and home.thirdsection.ts_points %}
+            {% if home.Section3 and home.Section3.ts_points %}
               <ul>
-                {% for point in home.thirdsection.ts_points %}
+                {% for point in home.Section3.ts_points %}
                   <li>
                     <span>{{ point.position }}</span>
                     {% if point.title %}
@@ -360,8 +361,8 @@
         </div>
         <div class="col-lg-6">
           <div class="why-choose-us-img">
-            {% if home.thirdsection and home.thirdsection.image %}
-              <img src="{{ home.thirdsection.image.url }}" alt="Image" />
+            {% if home.Section3 and home.Section3.image %}
+              <img src="{{ home.Section3.image.url }}" alt="Image" />
             {% else %}
               <img src="{% static 'images/choose-us-img.jpg' %}" alt="Image" />
             {% endif %}
@@ -511,13 +512,13 @@
               <div class="col-12">
                 <div class="form-group">
                   <textarea name="message" class="form-control" id="Message" rows="4" placeholder="Your Message"></textarea>
-                                                                </div>
                                               </div>
+                                  </div>
 
-                                              <div class="col-12">
-                                                <button type="submit" class="default-btn">
-                                                  Book Appointment
-                                </button>
+                                  <div class="col-12">
+                                    <button type="submit" class="default-btn">
+                                      Book Appointment
+                          </button>
               </div>
             </div>
           </form>
@@ -532,13 +533,13 @@
 <section class="customer-story-area bg-color ptb-100">
   <div class="container">
     <div class="section-title">
-      {% if home.fourthsection and home.fourthsection.title %}
-        <h2>{{ home.fourthsection.title }}</h2>
+      {% if home.Section4 and home.Section4.title %}
+        <h2>{{ home.Section4.title }}</h2>
       {% else %}
         <h2>Story of Success</h2>
       {% endif %}
-      {% if home.fourthsection and home.fourthsection.description %}
-        <p>{{ home.fourthsection.description }}</p>
+      {% if home.Section4 and home.Section4.description %}
+        <p>{{ home.Section4.description }}</p>
       {% else %}
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -546,9 +547,9 @@
         </p>
       {% endif %}
     </div>
-    {% if home.fourthsection and home.fourthsection.fs_carousels %}
+    {% if home.Section4 and home.Section4.fs_carousels %}
       <div class="customer-story-slider owl-carousel owl-theme">
-        {% for fs_carousel in home.fourthsection.fs_carousels %}
+        {% for fs_carousel in home.Section4.fs_carousels %}
           <div class="single-customer-story">
             {% if fs_carousel.image %}
               <img src="{{ fs_carousel.image.url }}" alt="Image" />
@@ -866,15 +867,15 @@
 <section class="our-news-area pt-100 pb-70">
   <div class="container">
     <div class="section-title">
-      {% if home.fifthsection and home.fifthsection.title %}
-        <h2>{{ home.fifthsection.title }}</h2>
+      {% if home.Section5 and home.Section5.title %}
+        <h2>{{ home.Section5.title }}</h2>
       {% else %}
         <h2>Featured News And Advice</h2>
       {% endif %}
     </div>
-    {% if home.fifthsection and home.fifthsection.fi_carousels %}
+    {% if home.Section5 and home.Section5.fi_carousels %}
       <div class="owl-carousel owl-theme news-slider">
-        {% for fi_carousel in home.fifthsection.fi_carousels %}
+        {% for fi_carousel in home.Section5.fi_carousels %}
           <div class="single-news">
             <a href="news-details.html">
               {% if fi_carousel.image %}
