@@ -3,64 +3,74 @@ from django.contrib import admin
 
 # Models
 from personal_training.home.models.models import (
-    CarouselFiS,
-    CarouselFoS,
-    CarouselSS,
-    FifthSection,
-    FourthSection,
-    HeadCarousel,
-    HomeSection,
-    PointTS,
-    SecondSection,
-    ThirdSection,
+    Carousel1,
+    Carousel2,
+    Carousel4,
+    Carousel5,
+    Identifier,
+    Section2,
+    Section3,
+    Section3Point,
+    Section4,
+    Section5,
 )
 
 
-@admin.register(HomeSection)
-class HomeSectionAdmin(admin.ModelAdmin):
-    list_display = ["name"]
+@admin.register(Identifier)
+class IdentifierAdmin(admin.ModelAdmin):
+    list_display = ["pk", "name"]
 
 
-@admin.register(HeadCarousel)
-class HeadCarouselAdmin(admin.ModelAdmin):
-    list_display = ["title", "description", "image"]
+@admin.register(Carousel1)
+class Carousel1Admin(admin.ModelAdmin):
+    list_display = ["pk", "title", "description", "image"]
+    readonly_fields = ["my_image_thumbnail"]
+
+    def delete_queryset(self, request, queryset):
+        for obj in queryset:
+            obj.image.delete()
+        return super().delete_queryset(request, queryset)
 
 
-@admin.register(SecondSection)
-class SecondSectionAdmin(admin.ModelAdmin):
-    list_display = ["title"]
+@admin.register(Section2)
+class Section2Admin(admin.ModelAdmin):
+    list_display = ["pk", "title"]
 
 
-@admin.register(CarouselSS)
-class CarouselSSAdmin(admin.ModelAdmin):
-    list_display = ["title", "description", "image"]
+@admin.register(Carousel2)
+class Carousel2Admin(admin.ModelAdmin):
+    list_display = ["pk", "title", "description", "image"]
+    readonly_fields = ["my_image_thumbnail"]
 
 
-@admin.register(ThirdSection)
-class ThirdSectionAdmin(admin.ModelAdmin):
-    list_display = ["title", "image"]
+@admin.register(Section3)
+class Section3Admin(admin.ModelAdmin):
+    list_display = ["pk", "title", "image"]
+    readonly_fields = ["my_image_thumbnail"]
 
 
-@admin.register(PointTS)
-class PointTSAdmin(admin.ModelAdmin):
-    list_display = ["title", "description", "position"]
+@admin.register(Section3Point)
+class Section3PointAdmin(admin.ModelAdmin):
+    list_display = ["pk", "title", "description", "position"]
 
 
-@admin.register(FourthSection)
-class FourthSectionAdmin(admin.ModelAdmin):
-    list_display = ["title", "description"]
+@admin.register(Section4)
+class Section4Admin(admin.ModelAdmin):
+    list_display = ["pk", "title", "description"]
 
 
-@admin.register(CarouselFoS)
-class CarouselFoSAdmin(admin.ModelAdmin):
-    list_display = ["title", "description", "image"]
+@admin.register(Carousel4)
+class Carousel4Admin(admin.ModelAdmin):
+    list_display = ["pk", "title", "description", "image"]
+    readonly_fields = ["my_image_thumbnail"]
 
 
-@admin.register(FifthSection)
-class FifthSectionAdmin(admin.ModelAdmin):
-    list_display = ["title", "description"]
+@admin.register(Section5)
+class Section5Admin(admin.ModelAdmin):
+    list_display = ["pk", "title", "description"]
 
 
-@admin.register(CarouselFiS)
-class CarouselFiSAdmin(admin.ModelAdmin):
-    list_display = ["title", "description", "image"]
+@admin.register(Carousel5)
+class Carousel5Admin(admin.ModelAdmin):
+    list_display = ["pk", "title", "description", "image"]
+    readonly_fields = ["my_image_thumbnail"]

@@ -59,9 +59,7 @@ class CustomAuthenticationForm(forms.Form):
     )
 
     error_messages = {
-        "invalid_login": (
-            "Please enter a correct email and password. Note that both " "fields may be case-sensitive."
-        ),
+        "invalid_login": ("Please enter a correct email and password. Note that both " "fields may be case-sensitive."),
         "inactive": "This account is inactive.",
     }
 
@@ -109,16 +107,10 @@ class SignUpForm(forms.Form):
     """Sign up form."""
 
     password = forms.CharField(max_length=70, label="", widget=forms.PasswordInput(attrs={"class": "form-control"}))
-    password_confirmation = forms.CharField(
-        max_length=70, label="", widget=forms.PasswordInput(attrs={"class": "form-control"})
-    )
+    password_confirmation = forms.CharField(max_length=70, label="", widget=forms.PasswordInput(attrs={"class": "form-control"}))
 
-    first_name = forms.CharField(
-        min_length=2, max_length=50, label="", widget=forms.TextInput(attrs={"class": "form-control"})
-    )
-    last_name = forms.CharField(
-        min_length=2, max_length=50, label="", widget=forms.TextInput(attrs={"class": "form-control"})
-    )
+    first_name = forms.CharField(min_length=2, max_length=50, label="", widget=forms.TextInput(attrs={"class": "form-control"}))
+    last_name = forms.CharField(min_length=2, max_length=50, label="", widget=forms.TextInput(attrs={"class": "form-control"}))
 
     phone_number = forms.CharField(
         min_length=2,
@@ -128,9 +120,7 @@ class SignUpForm(forms.Form):
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Ejemplo +57 300 000 00 00"}),
     )
 
-    email = forms.CharField(
-        min_length=6, max_length=70, label="", widget=forms.EmailInput(attrs={"class": "form-control"})
-    )
+    email = forms.CharField(min_length=6, max_length=70, label="", widget=forms.EmailInput(attrs={"class": "form-control"}))
 
     def clean_phone_number(self):
         """Phone number must be unique."""

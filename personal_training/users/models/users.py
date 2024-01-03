@@ -31,9 +31,7 @@ class User(AbstractUser):
         "client",
         default=True,
     )
-    is_verified = models.BooleanField(
-        "verified", default=False, help_text="set to true when address email have verified"
-    )
+    is_verified = models.BooleanField("verified", default=False, help_text="set to true when address email have verified")
 
     def __str__(self):
         return self.email
