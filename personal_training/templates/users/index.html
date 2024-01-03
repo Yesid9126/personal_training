@@ -1,0 +1,1077 @@
+{% extends "personal_training_base.html" %}
+
+{% load static %}
+
+{% block preload %}
+  <!-- Start Preloader Area -->
+  <!-- End Preloader Area -->
+{% endblock preload %}
+{% block content %}
+  <!-- Start Hero Slider Area -->
+  {% if home.head_carousels %}
+    <section class="hero-slider-area">
+      <div class="hero-slider owl-carousel owl-theme">
+        {% for carousel in home.head_carousels %}
+          <div class="hero-slider-item bg-1"
+               style="background-image: url({{ carousel.image.url }})">
+            <div class="d-table">
+              <div class="d-table-cell">
+                <div class="container">
+                  <div class="hero-slider-content">
+                    {% if carousel.title %}
+                      <h1>{{ carousel.title }}</h1>
+                    {% else %}
+                      <h1>keep Your Body Healthy And Fit</h1>
+                    {% endif %}
+                    {% if carousel.description %}
+                      <p>{{ carousel.description }}</p>
+                    {% else %}
+                      <p>
+                        We advise you to cure and prevent disease with nutrition for
+                        living your life in a healthy way Lorem ipsum dolor amet.
+                      </p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  {% else %}
+    <section class="hero-slider-area">
+      <div class="hero-slider owl-carousel owl-theme">
+        <div class="hero-slider-item bg-1">
+          <div class="d-table">
+            <div class="d-table-cell">
+              <div class="container">
+                <div class="hero-slider-content">
+                  {% comment %} <span>Welcome to Aava</span> {% endcomment %}
+                  <h1>keep Your Body Healthy And Fit</h1>
+                  <p>
+                    We advise you to cure and prevent disease with nutrition for
+                    living your life in a healthy way Lorem ipsum dolor amet.
+                  </p>
+                  {% comment %}
+              <div class="hero-slider-btn">
+                <a href="about-us.html" class="default-btn"> View More </a>
+              </div>
+                  {% endcomment %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-slider-item bg-2">
+          <div class="d-table">
+            <div class="d-table-cell">
+              <div class="container">
+                <div class="hero-slider-content">
+                  <span>Welcome to Aava</span>
+                  <h1>Good Nutrition Prevent Disease</h1>
+                  <p>
+                    We advise you to cure and prevent disease with nutrition for
+                    living your life in a healthy way Lorem ipsum dolor amet.
+                  </p>
+                  {% comment %}
+              <div class="hero-slider-btn">
+                <a href="about-us.html" class="default-btn"> View More </a>
+              </div>
+                  {% endcomment %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-slider-item bg-3">
+          <div class="d-table">
+            <div class="d-table-cell">
+              <div class="container">
+                <div class="hero-slider-content">
+                  <span>Welcome to Aava</span>
+                  <h1>Your Medicine is Your Food</h1>
+                  <p>
+                    We advise you to cure and prevent disease with nutrition for
+                    living your life in a healthy way Lorem ipsum dolor amet.
+                  </p>
+                  {% comment %}
+              <div class="hero-slider-btn">
+                <a href="about-us.html" class="default-btn"> View More </a>
+              </div>
+                  {% endcomment %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+  <!-- End Hero Slider Area -->
+  <!-- Start Expertise Area -->
+  <section class="expertise-area pt-100 pb-70">
+    <div class="container">
+      <div class="section-title">
+        {% if home.secondsection and home.secondsection.title %}
+          <h2>{{ home.secondsection.title }}</h2>
+        {% else %}
+          <h2>Our Main Areas of Expertise</h2>
+        {% endif %}
+      </div>
+      {% if home.secondsection.carousels and home.secondsection.ss_carousels %}
+        <div class="row">
+          {% for carousel in home.secondsection.ss_carousels %}
+            <div class="col-lg-4 col-md-6">
+              <div class="single-expertise">
+                <img src="{{ carousel.image.url }}" alt="Image" />
+                <div class="expertise-title">
+                  {% if carousel.title %}
+                    <h3>{{ carousel.title }}</h3>
+                  {% else %}
+                    <h3>Personal Nutrition</h3>
+                  {% endif %}
+                </div>
+                <div class="expertise-content">
+                  {% if carousel.title %}
+                    <h3>{{ carousel.title }}</h3>
+                  {% else %}
+                    <h3>Personal Nutrition</h3>
+                  {% endif %}
+                  {% if carousel.description %}
+                    <h3>{{ carousel.description }}</h3>
+                  {% else %}
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                      eiusmod tempor.
+                    </p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="single-expertise">
+              <img src="{% static 'images/expertise/expertise-1.jpg' %}" alt="Image" />
+              <div class="expertise-title">
+                <h3>Personal Nutrition</h3>
+              </div>
+              <div class="expertise-content">
+                <h3>Personal Nutrition</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="single-expertise">
+              <img src="{% static 'images/expertise/expertise-2.jpg' %}" alt="Image" />
+              <div class="expertise-title">
+                <h3>Dietitian Nutritionists</h3>
+              </div>
+              <div class="expertise-content">
+                <h3>Dietitian Nutritionists</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+            <div class="single-expertise">
+              <img src="{% static 'images/expertise/expertise-3.jpg' %}" alt="Image" />
+              <div class="expertise-title">
+                <h3>Nutritious Lifestyle</h3>
+              </div>
+              <div class="expertise-content">
+                <h3>Nutritious Lifestyle</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+  <!-- End Expertise Area -->
+  <!-- Start About Us Area -->
+  {% comment %}
+<section class="about-us-area pb-100">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="about-img-content">
+          <div class="about-img-1">
+            <img src="{% static 'images/about/about-img-1.jpg' %}" alt="Image" />
+            <div class="about-img-2">
+              <img src="{% static 'images/about/about-img-2.jpg' %}" alt="Image" />
+            </div>
+          </div>
+
+          <h3><span>25</span> Years of Experience</h3>
+
+          <a href="https://www.youtube.com/watch?v=yH3CPw9HLY0" class="popup-youtube video">
+            <div class="video-btn">
+              <i class="flaticon-play-button-1"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="about-content">
+          <span>About Aava</span>
+          <h2>Better Eat, Better Life</h2>
+          <h4>If You Get Better Nutrition, You Can Enjoy a Healthy Age</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+            quaerat fuga ipsam temporibus reprehenderit libero earum autem, eius
+            hic consequatur placeat ab eaque! Nostrum, exercitationem.
+          </p>
+
+          <h3>We Can Help You</h3>
+
+          <div class="row">
+            <div class="col-lg-6 col-sm-6">
+              <ul class="mb-20">
+                <li>Low Energy</li>
+                <li>Stress & Anxiety</li>
+                <li>Poor Eating Habits</li>
+                <li>Digestive Problems</li>
+              </ul>
+            </div>
+
+            <div class="col-lg-6 col-sm-6">
+              <ul>
+                <li>Balance Body & Mind</li>
+                <li>Advice</li>
+                <li>Workout Routines</li>
+                <li>Protein</li>
+              </ul>
+            </div>
+          </div>
+
+          <a href="about-us.html" class="default-btn">View More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-shape-img">
+    <img src="{% static 'images/about-shape.png' %}" alt="Image" />
+  </div>
+</section>
+  {% endcomment %}
+  <!-- End About Us Area -->
+  <!-- Start Why Choose Us Area -->
+  <section class="why-choose-us-area bg-color ptb-100">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="why-choose-us-content">
+            {% if home.thirdsection and home.thirdsection.title %}
+              <h2>{{ home.thirdsection.title }}</h2>
+            {% else %}
+              <h2>The Nutrition Professionals</h2>
+            {% endif %}
+            {% if home.thirdsection and home.thirdsection.ts_points %}
+              <ul>
+                {% for point in home.thirdsection.ts_points %}
+                  <li>
+                    <span>{{ point.position }}</span>
+                    {% if point.title %}
+                      <h3>{{ point.title }}</h3>
+                    {% else %}
+                      <h3>Registered Dietitians</h3>
+                    {% endif %}
+                    {% if point.description %}
+                      <p>{{ point.description }}</p>
+                    {% else %}
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      </p>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <ul>
+                <li>
+                  <span>1</span>
+                  <h3>Registered Dietitians</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </li>
+                <li>
+                  <span>2</span>
+                  <h3>Nutrition Consultation</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </li>
+                <li>
+                  <span>3</span>
+                  <h3>Individual Support</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </li>
+                <li>
+                  <span>4</span>
+                  <h3>Disease Management</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </li>
+                <li>
+                  <span>5</span>
+                  <h3>Disease Management</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </li>
+                <li>
+                  <span>6</span>
+                  <h3>Disease Management</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </li>
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="why-choose-us-img">
+            {% if home.thirdsection and home.thirdsection.image %}
+              <img src="{{ home.thirdsection.image.url }}" alt="Image" />
+            {% else %}
+              <img src="{% static 'images/choose-us-img.jpg' %}" alt="Image" />
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Why Choose Us Area -->
+  <!-- Start What We Offer Area -->
+  <section class="what-we-offer-area pt-100 pb-70">
+    <div class="container">
+      <div class="section-title">
+        {% comment %} <span>What We Offer</span> {% endcomment %}
+        <h2>Our Diet & Nutrition Services</h2>
+      </div>
+      <div class="owl-carousel owl-theme what-we-offer-slider">
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img src="{% static 'images/what-we-offer/what-we-offer-1.jpg' %}"
+                 alt="Image" />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Nutrition Response Testing</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img src="{% static 'images/what-we-offer/what-we-offer-2.jpg' %}"
+                 alt="Image" />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Weight Loss Program</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img src="{% static 'images/what-we-offer/what-we-offer-3.jpg' %}"
+                 alt="Image" />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Nutrition Response Testing</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img src="{% static 'images/what-we-offer/what-we-offer-4.jpg' %}"
+                 alt="Image" />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Clinical Nutrition</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End What We Offer Area -->
+  <!-- Start Appointment Area -->
+  <section class="appointment-area">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 pl-0">
+          <div class="appointment-img"></div>
+        </div>
+        {% comment %}
+      <div class="col-lg-6">
+        <div class="appointment-action ptb-100">
+          <h2>Make An Appointment</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui,
+            recusandae alias. Ipsam, repellendus, vero consectetur quod eligendi
+            debitis.
+          </p>
+
+          <form>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="Name" placeholder="Name" />
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input type="email" class="form-control" id="Email" placeholder="Email" />
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="Phone" placeholder="Phone" />
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <div class="input-group date" id="datetimepicker">
+                    <input type="text" class="form-control" id="Date" placeholder="Booking Date" />
+                    <span class="input-group-addon"></span>
+                    <i class="bx bx-calendar"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group">
+                  <select>
+                    <option value="1">Type of Service</option>
+                    <option value="2">Health Service</option>
+                    <option value="3">Nutrition Service</option>
+                    <option value="4">Response Service</option>
+                    <option value="5">Testing Service</option>
+                    <option value="6">Weight Service</option>
+                    <option value="7">Clinical Service</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-group">
+                  <textarea name="message" class="form-control" id="Message" rows="4" placeholder="Your Message"></textarea>
+                                                                </div>
+                                              </div>
+
+                                              <div class="col-12">
+                                                <button type="submit" class="default-btn">
+                                                  Book Appointment
+                                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+{% endcomment %}
+</div>
+</div>
+</section>
+<!-- End Appointment Area -->
+<!-- Start Customer Story Area -->
+<section class="customer-story-area bg-color ptb-100">
+  <div class="container">
+    <div class="section-title">
+      {% if home.fourthsection and home.fourthsection.title %}
+        <h2>{{ home.fourthsection.title }}</h2>
+      {% else %}
+        <h2>Story of Success</h2>
+      {% endif %}
+      {% if home.fourthsection and home.fourthsection.description %}
+        <p>{{ home.fourthsection.description }}</p>
+      {% else %}
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      {% endif %}
+    </div>
+    {% if home.fourthsection and home.fourthsection.fs_carousels %}
+      <div class="customer-story-slider owl-carousel owl-theme">
+        {% for fs_carousel in home.fourthsection.fs_carousels %}
+          <div class="single-customer-story">
+            {% if fs_carousel.image %}
+              <img src="{{ fs_carousel.image.url }}" alt="Image" />
+            {% else %}
+              <img src="{% static 'images/customer-story/customer-story-img-1.jpg' %}"
+                   alt="Image" />
+            {% endif %}
+            {% if fs_carousel.title %}
+              <h2>{{ fs_carousel.title }}</h2>
+            {% else %}
+              <h2>Diet and Nutrition Improves Health</h2>
+            {% endif %}
+            {% if fs_carousel.description %}
+              <p>{{ fs_carousel.description }}</p>
+            {% else %}
+              <p>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+                sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+                sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+                et justo duo dolores et ea rebum. Stet clita kasd gubergren, Lorem
+                ipsum dolor sit amet Lorem ipsum dolor sit amet, consetetur magna
+                aliquyam.
+              </p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="customer-story-slider owl-carousel owl-theme">
+        <div class="single-customer-story">
+          <img src="{% static 'images/customer-story/customer-story-img-1.jpg' %}"
+               alt="Image" />
+          <h2>Diet and Nutrition Improves Health</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+            rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+            ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+            et justo duo dolores et ea rebum. Stet clita kasd gubergren, Lorem
+            ipsum dolor sit amet Lorem ipsum dolor sit amet, consetetur magna
+            aliquyam.
+          </p>
+        </div>
+        <div class="single-customer-story">
+          <img src="{% static 'images/customer-story/customer-story-img-2.jpg' %}"
+               alt="Image" />
+          <h2>The Nutrition Professionals</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+            rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+            ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+            et justo duo dolores et ea rebum. Stet clita kasd gubergren, Lorem
+            ipsum dolor sit amet Lorem ipsum dolor sit amet, consetetur magna
+            aliquyam.
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</section>
+<!-- End Customer Story Area -->
+<!-- Start Team Area -->
+<section class="team-area pt-100 pb-70">
+  <div class="container">
+    <div class="section-title">
+      {% comment %} <span>Our Experts</span> {% endcomment %}
+      <h2>Diet & Nutrition Experts</h2>
+    </div>
+    <div class="owl-carousel owl-theme team-slider">
+      <div class="single-team">
+        <div class="team-img">
+          <img src="{% static 'images/team/team-1.jpg' %}" alt="Image" />
+          <ul class="team-link">
+            <li>
+              <a href="#">
+                <i class="bx bxl-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-pinterest-alt"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="team-content">
+          <h3>Dr. Angela Russell</h3>
+          <span>Diet & Nutrition</span>
+        </div>
+      </div>
+      <div class="single-team">
+        <div class="team-img">
+          <img src="{% static 'images/team/team-2.jpg' %}" alt="Image" />
+          <ul class="team-link">
+            <li>
+              <a href="#">
+                <i class="bx bxl-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-pinterest-alt"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="team-content">
+          <h3>Dr. Russell Anderson</h3>
+          <span>Nutritonist</span>
+        </div>
+      </div>
+      <div class="single-team">
+        <div class="team-img">
+          <img src="{% static 'images/team/team-3.jpg' %}" alt="Image" />
+          <ul class="team-link">
+            <li>
+              <a href="#">
+                <i class="bx bxl-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-pinterest-alt"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="team-content">
+          <h3>Dr. Miriam Landau</h3>
+          <span>Diet & Nutrition</span>
+        </div>
+      </div>
+      <div class="single-team">
+        <div class="team-img">
+          <img src="{% static 'images/team/team-4.jpg' %}" alt="Image" />
+          <ul class="team-link">
+            <li>
+              <a href="#">
+                <i class="bx bxl-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-pinterest-alt"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="team-content">
+          <h3>Dr. Anna Smith</h3>
+          <span>Nutritonist</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Team Area -->
+<!-- Start Testimonial Area -->
+{% comment %}
+<section class="testimonials-area pt-100">
+  <div class="container">
+    <div class="testimonials-content">
+      <div class="testimonials-slider owl-carousel owl-theme">
+        <div class="single-testimonials">
+          <i class="bx bxs-quote-right"></i>
+          <p>
+            “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+            ipsum suspendisse ultrices gravida. Risus com modo viverra maecenas
+            accumsan lacus vel facilisis.”
+          </p>
+
+          <div class="writer-name">
+            <h3>Miriam Landau</h3>
+            <span>Director</span>
+          </div>
+        </div>
+
+        <div class="single-testimonials">
+          <i class="bx bxs-quote-right"></i>
+          <p>
+            “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+            ipsum suspendisse ultrices gravida. Risus com modo viverra maecenas
+            accumsan lacus vel facilisis.”
+          </p>
+
+          <div class="writer-name">
+            <h3>Alex Dew</h3>
+            <span>Company of CEO</span>
+          </div>
+        </div>
+
+        <div class="single-testimonials">
+          <i class="bx bxs-quote-right"></i>
+          <p>
+            “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+            ipsum suspendisse ultrices gravida. Risus com modo viverra maecenas
+            accumsan lacus vel facilisis.”
+          </p>
+
+          <div class="writer-name">
+            <h3>Juhon Smith</h3>
+            <span>Company of MD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4>Frases celebres</h4>
+  </div>
+</section>
+{% endcomment %}
+<!-- End Testimonial Area -->
+<!-- Start Healthy Life Area -->
+{% comment %}
+<section class="healthy-life-area ptb-100">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="healthy-life-img">
+          <img src="{% static 'images/healthy-life-img.jpg' %}" alt="Image" />
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="healthy-life-content">
+          <h2>We Give You Inspiration For Living a Healthy Life</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+            ipsum suspendisse ultrices gravida consectetur adipiscing.
+          </p>
+
+          <h3>Steps to Your Perfect Body</h3>
+
+          <div class="row">
+            <div class="col-lg-6 col-sm-6">
+              <ul class="mb-20">
+                <li>Low Energy</li>
+                <li>Stress & Anxiety</li>
+                <li>Poor Eating Habits</li>
+                <li>Digestive Problems</li>
+              </ul>
+            </div>
+
+            <div class="col-lg-6 col-sm-6">
+              <ul>
+                <li>Balance Body & Mind</li>
+                <li>Advice</li>
+                <li>Workout Routines</li>
+                <li>Protein</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endcomment %}
+<!-- End Healthy Life Area -->
+<!-- Start Our News Area -->
+<section class="our-news-area pt-100 pb-70">
+  <div class="container">
+    <div class="section-title">
+      {% if home.fifthsection and home.fifthsection.title %}
+        <h2>{{ home.fifthsection.title }}</h2>
+      {% else %}
+        <h2>Featured News And Advice</h2>
+      {% endif %}
+    </div>
+    {% if home.fifthsection and home.fifthsection.fi_carousels %}
+      <div class="owl-carousel owl-theme news-slider">
+        {% for fi_carousel in home.fifthsection.fi_carousels %}
+          <div class="single-news">
+            <a href="news-details.html">
+              {% if fi_carousel.image %}
+                <img src="{{ fi_carousel.image.url }}" alt="Image" />
+              {% else %}
+                <img src="{% static 'images/news/news-1.jpg' %}" alt="Image" />
+              {% endif %}
+            </a>
+            <div class="news-content">
+              <ul>
+                <li>
+                  <i class="bx bxs-user"></i>
+                  <a href="#">Harold McLeod</a>
+                </li>
+                <li>
+                  <i class="bx bxs-calendar"></i>
+                  {% if fi_carousel.date %}
+                    <span>{{ fi_carousel.date }}</span>
+                  {% else %}
+                    <span>Dec 04, 2020</span>
+                  {% endif %}
+                </li>
+              </ul>
+              <h3>
+                {% if fi_carousel.title %}
+                  <a href="news-details.html">{{ fi_carousel.title }}</a>
+                {% else %}
+                  <a href="news-details.html">Tips to Help Support Your Nutritional Assessment</a>
+                {% endif %}
+              </h3>
+              {% if fi_carousel.description %}
+                <p>{{ fi_carousel.description }}</p>
+              {% else %}
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna.
+                </p>
+              {% endif %}
+              <a href="news-details.html" class="read-more">Read More</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="owl-carousel owl-theme news-slider">
+        <div class="single-news">
+          <a href="news-details.html">
+            <img src="{% static 'images/news/news-1.jpg' %}" alt="Image" />
+          </a>
+          <div class="news-content">
+            <ul>
+              <li>
+                <i class="bx bxs-user"></i>
+                <a href="#">Harold McLeod</a>
+              </li>
+              <li>
+                <i class="bx bxs-calendar"></i>
+                <span>Dec 04, 2020</span>
+              </li>
+            </ul>
+            <h3>
+              <a href="news-details.html">Tips to Help Support Your Nutritional Assessment</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="news-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="single-news">
+          <a href="news-details.html">
+            <img src="{% static 'images/news/news-2.jpg' %}" alt="Image" />
+          </a>
+          <div class="news-content">
+            <ul>
+              <li>
+                <i class="bx bxs-user"></i>
+                <a href="#">James Stockton</a>
+              </li>
+              <li>
+                <i class="bx bxs-calendar"></i>
+                <span>Dec 05, 2020</span>
+              </li>
+            </ul>
+            <h3>
+              <a href="news-details.html">7 Steps to Stay Healthy During Times</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="news-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="single-news">
+          <a href="news-details.html">
+            <img src="{% static 'images/news/news-3.jpg' %}" alt="Image" />
+          </a>
+          <div class="news-content">
+            <ul>
+              <li>
+                <i class="bx bxs-user"></i>
+                <a href="#">George Harris</a>
+              </li>
+              <li>
+                <i class="bx bxs-calendar"></i>
+                <span>Dec 06, 2020</span>
+              </li>
+            </ul>
+            <h3>
+              <a href="news-details.html">Top 5 Tips Why Selfcare is More Important</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="news-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="single-news">
+          <a href="news-details.html">
+            <img src="{% static 'images/news/news-4.jpg' %}" alt="Image" />
+          </a>
+          <div class="news-content">
+            <ul>
+              <li>
+                <i class="bx bxs-user"></i>
+                <a href="#">Kliva Dew</a>
+              </li>
+              <li>
+                <i class="bx bxs-calendar"></i>
+                <span>Dec 07, 2020</span>
+              </li>
+            </ul>
+            <h3>
+              <a href="news-details.html">We Give You Inspiration For Living a Healthy Life</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="news-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+<!-- End Our News Area -->
+<!-- Start Partner Area -->
+{% comment %}
+<div class="partner-area bg-color ptb-100">
+  <div class="container">
+    <div class="partner-bg">
+      <div class="row">
+        <div class="partner-slider owl-carousel owl-theme">
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img src="{% static 'images/partner/partner-1.png' %}" alt="Image" />
+            </a>
+          </div>
+
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img src="{% static 'images/partner/partner-2.png' %}" alt="Image" />
+            </a>
+          </div>
+
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img src="{% static 'images/partner/partner-3.png' %}" alt="Image" />
+            </a>
+          </div>
+
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img src="{% static 'images/partner/partner-4.png' %}" alt="Image" />
+            </a>
+          </div>
+
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img src="{% static 'images/partner/partner-5.png' %}" alt="Image" />
+            </a>
+          </div>
+
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img src="{% static 'images/partner/partner-3.png' %}" alt="Image" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endcomment %}
+<!-- End Partner Area -->
+{% endblock content %}

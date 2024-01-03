@@ -16,25 +16,23 @@ class User(AbstractUser):
     and add some extra info
     """
     email = models.EmailField(
-        'email address',
+        "email address",
         unique=True,
         error_messages={
-            'unique': 'A user with that email already exist',
-        }
+            "unique": "A user with that email already exist",
+        },
     )
     phone_number = models.CharField(max_length=17, unique=True, blank=True, null=True)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username", "first_name", "last_name"]
 
     is_client = models.BooleanField(
-        'client',
+        "client",
         default=True,
     )
     is_verified = models.BooleanField(
-        'verified',
-        default=False,
-        help_text='set to true when address email have verified'
+        "verified", default=False, help_text="set to true when address email have verified"
     )
 
     def __str__(self):

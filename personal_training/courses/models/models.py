@@ -32,8 +32,9 @@ class Content(TrainingModel):
 
     description = models.TextField()
 
-    course = models.ForeignKey("Course", on_delete=models.CASCADE, related_name="content_course")
+    course = models.ForeignKey("Course", on_delete=models.CASCADE, related_name="contents")
 
-    file_content = models.FileField(_("Cargar video"), upload_to="videos/")
+    # file_content = models.FileField(_("Cargar video"), upload_to="videos/")
+    file_content = models.ForeignKey("files.File", on_delete=models.SET_NULL, null=True, related_name="contents")
 
     url = models.URLField("Url Field", max_length=500, null=True, blank=True)
