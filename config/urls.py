@@ -9,13 +9,14 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
-    path("contact-us/", TemplateView.as_view(template_name="contact-us.html"), name="contact-us"),
+    # path("contact-us/", TemplateView.as_view(template_name="contact-us.html"), name="contact-us"),
     path("about-us/", TemplateView.as_view(template_name="about-us.html"), name="about-us"),
     path("news/", TemplateView.as_view(template_name="news.html"), name="news"),
     path("products/", TemplateView.as_view(template_name="products.html"), name="products"),
     path("services/", TemplateView.as_view(template_name="services.html"), name="services"),
     path("users/", include("personal_training.users.urls", namespace="users")),
     path("", include("personal_training.home.urls", namespace="home")),
+    path("contact-us/", include("personal_training.contactus.urls", namespace="contactus")),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

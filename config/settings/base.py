@@ -90,6 +90,7 @@ LOCAL_APPS = [
     "personal_training.users",
     "personal_training.courses",
     "personal_training.home",
+    "personal_training.contactus",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
