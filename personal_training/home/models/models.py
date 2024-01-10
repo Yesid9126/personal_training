@@ -27,7 +27,6 @@ class Home(TrainingModel):
     title4 = models.CharField(max_length=255)
     description4 = models.TextField()
     titl5 = models.CharField(max_length=255)
-    title6 = models.CharField(max_length=255)
 
     def __str__(self):
         return f"{self.identifier if self.identifier else 'Sin identificador'}"

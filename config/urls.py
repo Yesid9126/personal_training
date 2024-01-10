@@ -11,7 +11,7 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # path("contact-us/", TemplateView.as_view(template_name="contact-us.html"), name="contact-us"),
     path("about-us/", TemplateView.as_view(template_name="about-us.html"), name="about-us"),
-    path("news/", TemplateView.as_view(template_name="news.html"), name="news"),
+    # path("news/", TemplateView.as_view(template_name="news.html"), name="news"),
     path("products/", TemplateView.as_view(template_name="products.html"), name="products"),
     path("services/", TemplateView.as_view(template_name="services.html"), name="services"),
     path("users/", include("personal_training.users.urls", namespace="users")),
