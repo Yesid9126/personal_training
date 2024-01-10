@@ -1,137 +1,238 @@
-{% extends "personal_training_base.html" %}
-
-{% load static %}
-
-{% block content %}
-  <!-- Start Contact Info Area -->
-  <section class="contact-info-area pt-100 pb-70">
-    <div class="container">
-      <div class="section-title">
-        <h2>Contact Us, We Are Here to Help You</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam error
-          veritatis laborum maxime et, ducimus minima quos rerum voluptatum atque
-        </p>
+{% extends "personal_training_base.html" %} {% load static %} {% block content%}
+<!-- Start Contact Info Area -->
+<section class="contact-info-area pt-100 pb-70">
+  <div class="container">
+    <div class="section-title">
+      {% if contactus and contactus.title1 %}
+      <h2>{{ contactus.title1 }}</h2>
+      {% else %}
+      <h2>Contact Us, We Are Here to Help You</h2>
+      {% endif %} {% if contactus and contactus.description1 %}
+      <p>{{ contactus.description1 }}</p>
+      {% else %}
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam error
+        veritatis laborum maxime et, ducimus minima quos rerum voluptatum atque
+      </p>
+      {% endif %}
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6" style="margin-left: auto; margin-right: 0">
+        {% if contacts %}
+        <div class="single-contact-info">
+          <i class="bx bx-user"></i>
+          {% for contact in contacts %}
+          <a href="mailto:hello@aava.com">{{ contact.name }}</a>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="single-contact-info">
+          <i class="bx bx-user"></i>
+          <a href="mailto:hello@aava.com">Test</a>
+        </div>
+        {% endif %}
       </div>
+      <div class="col-lg-4 col-md-6" style="margin-left: auto; margin-right: 0">
+        {% if contacts %}
+        <div class="single-contact-info">
+          <i class="bx bx-envelope"></i>
+          {% for contact in contacts %}
+          <a href="mailto:hello@aava.com">{{ contact.email }}</a>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="single-contact-info">
+          <i class="bx bx-envelope"></i>
+          <a href="mailto:hello@aava.com">hello@aava.com</a>
+        </div>
+        {% endif %}
+      </div>
+      <div
+        class="col-lg-4 col-md-6 offset-md-3 offset-lg-0"
+        style="margin-left: 0; margin-right: auto"
+      >
+        {% if contacts %}
+        <div class="single-contact-info">
+          <i class="bx bx-phone-call"></i>
+          {% for contact in contacts %}
+          <a href="tel:+1-(337)-829-7799">{{ contact.phone }}</a>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="single-contact-info">
+          <i class="bx bx-phone-call"></i>
+          <a href="tel:+1-(337)-829-7799">+1 (337)-829-7799</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Contact Info Area -->
+<!-- Start Contact Area -->
+<section class="main-contact-area pb-100">
+  <div class="container">
+    <div class="section-title">
+      {% if contactus.title2 %}
+      <h2>{{ contactus.title2 }}</h2>
+      {% else %}
+      <h2>Let Us Contact You</h2>
+      {% endif %}
+    </div>
+    <form id="contactForm">
       <div class="row">
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-6 col-sm-6">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="form-control"
+              required
+              data-error="Please enter your name"
+            />
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div class="form-group">
+            <label>Your Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="form-control"
+              required
+              data-error="Please enter your email"
+            />
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div class="form-group">
+            <label>Your Phone</label>
+            <input
+              type="text"
+              name="phone_number"
+              id="phone_number"
+              required
+              data-error="Please enter your number"
+              class="form-control"
+            />
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div class="form-group">
+            <label>Your Goal</label>
+            <input
+              type="text"
+              name="msg_subject"
+              id="msg_subject"
+              class="form-control"
+              required
+              data-error="Please enter your subject"
+            />
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label>About You</label>
+            <textarea
+              name="message"
+              class="form-control"
+              id="message"
+              cols="30"
+              rows="8"
+              required
+              data-error="Write your message"
+            ></textarea>
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+          <div class="form-group checkboxs">
+            <input type="checkbox" id="chb2" />
+            <p>
+              Accept
+              <a href="terms-conditions.html">Terms &amp; Conditions</a> And
+              <a href="privacy-policy.html">Privacy Policy.</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+          <button type="submit" class="default-btn">
+            <span>Send Message</span>
+          </button>
+          <div id="msgSubmit" class="h3 text-center hidden"></div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- End Contact Area -->
+<!-- Start Map Area -->
+{% comment %}
+<section class="what-we-offer-area pt-100 pb-70">
+  <div class="container">
+    <div class="section-title">
+      {% if contactus and contactus.title3 %}
+      <h1>{{ contactus.title3 }}</h1>
+      {% else %}
+      <h1>Where To Find Us</h1>
+      {% endif %}
+    </div>
+    {% if locations %}
+    <div class="owl-carousel owl-theme what-we-offer-slider">
+      {% for location in locations %}
+      <div class="single-what-we-offer">
+        <div class="what-we-offer-content">
+          {% if location.name %}
+          <h2>
+            <a href="services-details.html">{{ location.name }}</a>
+          </h2>
+          {% else %}
+          <h2>
+            <a href="services-details.html">Clinical Nutrition</a>
+          </h2>
+          {% endif %}
           <div class="single-contact-info">
             <i class="bx bx-location-plus"></i>
-            <p>1424 Bridge Avenue Franklin, LA 70538</p>
           </div>
+          {% if location.address %}
+          <h2>{{ location.address }}</h2>
+          {% else %}
+          <h2>1424 Bridge Avenue Franklin, LA 70538</h2>
+          {% endif %}
         </div>
-        <div class="col-lg-4 col-md-6">
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="owl-carousel owl-theme what-we-offer-slider">
+      <div class="single-what-we-offer">
+        <div class="what-we-offer-content">
+          <h2>
+            <a href="services-details.html">Clinical Nutrition</a>
+          </h2>
           <div class="single-contact-info">
-            <i class="bx bx-envelope"></i>
-            <a href="mailto:hello@aava.com">hello@aava.com</a>
-            <a href="mailto:info@aava.com">info@aava.com</a>
+            <i class="bx bx-location-plus"></i>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-          <div class="single-contact-info">
-            <i class="bx bx-phone-call"></i>
-            <a href="tel:+1-(337)-829-7799">+1 (337)-829-7799</a>
-            <a href="tel:+1-(337)-829-7788">+1 (337)-829-7788</a>
-          </div>
+          <h2>1424 Bridge Avenue Franklin, LA 70538</h2>
         </div>
       </div>
     </div>
-  </section>
-  <!-- End Contact Info Area -->
-  <!-- Start Contact Area -->
-  <section class="main-contact-area pb-100">
-    <div class="container">
-      <div class="section-title">
-        <h2>Write Us</h2>
-      </div>
-      <form id="contactForm">
-        <div class="row">
-          <div class="col-lg-6 col-sm-6">
-            <div class="form-group">
-              <label>Your Name</label>
-              <input type="text"
-                     name="name"
-                     id="name"
-                     class="form-control"
-                     required
-                     data-error="Please enter your name" />
-              <div class="help-block with-errors"></div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="form-group">
-              <label>Your Email</label>
-              <input type="email"
-                     name="email"
-                     id="email"
-                     class="form-control"
-                     required
-                     data-error="Please enter your email" />
-              <div class="help-block with-errors"></div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="form-group">
-              <label>Your Phone</label>
-              <input type="text"
-                     name="phone_number"
-                     id="phone_number"
-                     required
-                     data-error="Please enter your number"
-                     class="form-control" />
-              <div class="help-block with-errors"></div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="form-group">
-              <label>Subject</label>
-              <input type="text"
-                     name="msg_subject"
-                     id="msg_subject"
-                     class="form-control"
-                     required
-                     data-error="Please enter your subject" />
-              <div class="help-block with-errors"></div>
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="form-group">
-              <label>Your Message</label>
-              <textarea name="message"
-                        class="form-control"
-                        id="message"
-                        cols="30"
-                        rows="8"
-                        required
-                        data-error="Write your message"></textarea>
-              <div class="help-block with-errors"></div>
-            </div>
-          </div>
-          <div class="col-lg-12 col-md-12">
-            <div class="form-group checkboxs">
-              <input type="checkbox" id="chb2" />
-              <p>
-                Accept
-                <a href="terms-conditions.html">Terms &amp; Conditions</a> And
-                <a href="privacy-policy.html">Privacy Policy.</a>
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-12 col-md-12">
-            <button type="submit" class="default-btn">
-              <span>Send Message</span>
-            </button>
-            <div id="msgSubmit" class="h3 text-center hidden"></div>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </section>
-  <!-- End Contact Area -->
-  <!-- Start Map Area -->
-  <div class="map-area">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13848.554818402792!2d-91.53111256217497!3d29.802536931356414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8623eaead5af1d6b%3A0xd73d2fa52256668b!2sCashway%20Pharmacy%20of%20Franklin%20Inc.!5e0!3m2!1sen!2sbd!4v1607809894266!5m2!1sen!2sbd"></iframe>
+    {% endif %}
   </div>
-  <!-- End Map Area -->
+</section>
+<div class="map-area">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13848.554818402792!2d-91.53111256217497!3d29.802536931356414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8623eaead5af1d6b%3A0xd73d2fa52256668b!2sCashway%20Pharmacy%20of%20Franklin%20Inc.!5e0!3m2!1sen!2sbd!4v1607809894266!5m2!1sen!2sbd"
+  ></iframe>
+</div>
+{% endcomment %}
+<!-- End Map Area -->
 {% endblock content %}

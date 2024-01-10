@@ -1,403 +1,410 @@
-{% extends "personal_training_base.html" %}
-
-{% load static %}
-
-{% block preload %}
-  <!-- Start Preloader Area -->
-  <!-- End Preloader Area -->
-{% endblock preload %}
-{% block content %}
-  <!-- Start Page Title Area -->
-  <div class="page-title-area bg-1">
-    <div class="container">
-      <div class="page-title-content">
-        <h2>About Us</h2>
-        <ul>
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>Pages</li>
-          <li class="active">About Us</li>
-        </ul>
+{% extends "personal_training_base.html" %} {% load static %} {% block preload %}
+<!-- Start Preloader Area -->
+<!-- End Preloader Area -->
+{% endblock preload %} {% block content %}
+<!-- Start Page Title Area -->
+<!-- End Page Title Area -->
+<!-- Start About Us Area -->
+<section class="about-us-area ptb-100">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="about-img-content">
+          <div class="about-img-1">
+            <img
+              src="{% static 'images/about/about-img-1.jpg' %}"
+              alt="Image"
+            />
+            <div class="about-img-2">
+              <img
+                src="{% static 'images/about/about-img-2.jpg' %}"
+                alt="Image"
+              />
+            </div>
+          </div>
+          <h3><span>25</span> Years of Experience</h3>
+          <a
+            href="https://www.youtube.com/watch?v=yH3CPw9HLY0"
+            class="popup-youtube video"
+          >
+            <div class="video-btn">
+              <i class="flaticon-play-button-1"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="about-content">
+          <span>About Aava</span>
+          <h2>Better Eat, Better Life</h2>
+          <h4>If You Get Better Nutrition, You Can Enjoy a Healthy Age</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+            quaerat fuga ipsam temporibus reprehenderit libero earum autem, eius
+            hic consequatur placeat ab eaque! Nostrum, exercitationem.
+          </p>
+          <h3>We Can Help You</h3>
+          <div class="row">
+            <div class="col-lg-6 col-sm-6">
+              <ul class="mb-20">
+                <li>Low Energy</li>
+                <li>Stress & Anxiety</li>
+                <li>Poor Eating Habits</li>
+                <li>Digestive Problems</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+              <ul>
+                <li>Balance Body & Mind</li>
+                <li>Advice</li>
+                <li>Workout Routines</li>
+                <li>Protein</li>
+              </ul>
+            </div>
+          </div>
+          <a href="about-us.html" class="default-btn">View More</a>
+        </div>
       </div>
     </div>
   </div>
-  <!-- End Page Title Area -->
-  <!-- Start About Us Area -->
-  <section class="about-us-area ptb-100">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <div class="about-img-content">
-            <div class="about-img-1">
-              <img src="{% static 'images/about/about-img-1.jpg' %}" alt="Image" />
-              <div class="about-img-2">
-                <img src="{% static 'images/about/about-img-2.jpg' %}" alt="Image" />
-              </div>
-            </div>
-            <h3>
-              <span>25</span> Years of Experience
-            </h3>
-            <a href="https://www.youtube.com/watch?v=yH3CPw9HLY0"
-               class="popup-youtube video">
-              <div class="video-btn">
-                <i class="flaticon-play-button-1"></i>
-              </div>
+  <div class="about-shape-img">
+    <img src="{% static 'images/about-shape.png' %}" alt="Image" />
+  </div>
+</section>
+<!-- End About Us Area -->
+<!-- Start Partner Area -->
+<div class="partner-area bg-color-two ptb-100">
+  <div class="container">
+    <div class="partner-bg">
+      <div class="row">
+        <div class="partner-slider owl-carousel owl-theme">
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img
+                src="{% static 'images/partner/black-partner-1.png' %}"
+                alt="Image"
+              />
+            </a>
+          </div>
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img
+                src="{% static 'images/partner/black-partner-2.png' %}"
+                alt="Image"
+              />
+            </a>
+          </div>
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img
+                src="{% static 'images/partner/black-partner-3.png' %}"
+                alt="Image"
+              />
+            </a>
+          </div>
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img
+                src="{% static 'images/partner/black-partner-4.png' %}"
+                alt="Image"
+              />
+            </a>
+          </div>
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img
+                src="{% static 'images/partner/black-partner-5.png' %}"
+                alt="Image"
+              />
+            </a>
+          </div>
+          <div class="partner-item">
+            <a href="partner-details.html">
+              <img
+                src="{% static 'images/partner/black-partner-3.png' %}"
+                alt="Image"
+              />
             </a>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="about-content">
-            <span>About Aava</span>
-            <h2>Better Eat, Better Life</h2>
-            <h4>If You Get Better Nutrition, You Can Enjoy a Healthy Age</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-              quaerat fuga ipsam temporibus reprehenderit libero earum autem, eius
-              hic consequatur placeat ab eaque! Nostrum, exercitationem.
-            </p>
-            <h3>We Can Help You</h3>
-            <div class="row">
-              <div class="col-lg-6 col-sm-6">
-                <ul class="mb-20">
-                  <li>Low Energy</li>
-                  <li>Stress & Anxiety</li>
-                  <li>Poor Eating Habits</li>
-                  <li>Digestive Problems</li>
-                </ul>
-              </div>
-              <div class="col-lg-6 col-sm-6">
-                <ul>
-                  <li>Balance Body & Mind</li>
-                  <li>Advice</li>
-                  <li>Workout Routines</li>
-                  <li>Protein</li>
-                </ul>
-              </div>
-            </div>
-            <a href="about-us.html" class="default-btn">View More</a>
-          </div>
-        </div>
       </div>
     </div>
-    <div class="about-shape-img">
-      <img src="{% static 'images/about-shape.png' %}" alt="Image" />
-    </div>
-  </section>
-  <!-- End About Us Area -->
-  <!-- Start Partner Area -->
-  <div class="partner-area bg-color-two ptb-100">
-    <div class="container">
-      <div class="partner-bg">
-        <div class="row">
-          <div class="partner-slider owl-carousel owl-theme">
-            <div class="partner-item">
-              <a href="partner-details.html">
-                <img src="{% static 'images/partner/black-partner-1.png' %}" alt="Image" />
-              </a>
-            </div>
-            <div class="partner-item">
-              <a href="partner-details.html">
-                <img src="{% static 'images/partner/black-partner-2.png' %}" alt="Image" />
-              </a>
-            </div>
-            <div class="partner-item">
-              <a href="partner-details.html">
-                <img src="{% static 'images/partner/black-partner-3.png' %}" alt="Image" />
-              </a>
-            </div>
-            <div class="partner-item">
-              <a href="partner-details.html">
-                <img src="{% static 'images/partner/black-partner-4.png' %}" alt="Image" />
-              </a>
-            </div>
-            <div class="partner-item">
-              <a href="partner-details.html">
-                <img src="{% static 'images/partner/black-partner-5.png' %}" alt="Image" />
-              </a>
-            </div>
-            <div class="partner-item">
-              <a href="partner-details.html">
-                <img src="{% static 'images/partner/black-partner-3.png' %}" alt="Image" />
-              </a>
-            </div>
-          </div>
+  </div>
+</div>
+<!-- End Partner Area -->
+<!-- Start Why Choose Us Area -->
+<section class="why-choose-us-area why-choose-us-about ptb-100">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="why-choose-us-content">
+          <span>Why Choose Us</span>
+          <h2>The Nutrition Professionals</h2>
+          <ul>
+            <li>
+              <span>1</span>
+              <h3>Registered Dietitians</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </li>
+            <li>
+              <span>2</span>
+              <h3>Nutrition Consultation</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </li>
+            <li>
+              <span>3</span>
+              <h3>Individual Support</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </li>
+            <li>
+              <span>4</span>
+              <h3>Disease Management</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="why-choose-us-img">
+          <img src="{% static 'images/choose-us-img-2.jpg' %}" alt="Image" />
         </div>
       </div>
     </div>
   </div>
-  <!-- End Partner Area -->
-  <!-- Start Why Choose Us Area -->
-  <section class="why-choose-us-area why-choose-us-about ptb-100">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <div class="why-choose-us-content">
-            <span>Why Choose Us</span>
-            <h2>The Nutrition Professionals</h2>
-            <ul>
-              <li>
-                <span>1</span>
-                <h3>Registered Dietitians</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </li>
-              <li>
-                <span>2</span>
-                <h3>Nutrition Consultation</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </li>
-              <li>
-                <span>3</span>
-                <h3>Individual Support</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </li>
-              <li>
-                <span>4</span>
-                <h3>Disease Management</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </li>
-            </ul>
+</section>
+<!-- End Why Choose Us Area -->
+<!-- Start Expertise Area -->
+<section class="expertise-area bg-color-two pt-100 pb-70">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Main Areas of Expertise</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis
+        obcaecati inventore laudantium impedit aperiam? Amet ipsam vitae maiores
+        quo
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="single-expertises">
+          <i class="flaticon-diet"></i>
+          <h3>Personal Nutrition</h3>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="single-expertises">
+          <i class="flaticon-nutrition"></i>
+          <h3>Dietitian Nutritionists</h3>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+        <div class="single-expertises">
+          <i class="flaticon-pyramid"></i>
+          <h3>Nutritious Lifestyle</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Expertise Area -->
+<!-- Start Testimonial Area -->
+<section
+  class="testimonials-area testimonials-area-style-two style-about-page pt-100"
+>
+  <div class="container">
+    <div class="testimonials-content">
+      <div class="testimonials-slider owl-carousel owl-theme">
+        <div class="single-testimonials">
+          <i class="bx bxs-quote-right"></i>
+          <p>
+            “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+            ipsum suspendisse ultrices gravida. Risus com modo viverra maecenas
+            accumsan lacus vel facilisis.”
+          </p>
+          <div class="writer-name">
+            <h3>Miriam Landau</h3>
+            <span>Director</span>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="why-choose-us-img">
-            <img src="{% static 'images/choose-us-img-2.jpg' %}" alt="Image" />
+        <div class="single-testimonials">
+          <i class="bx bxs-quote-right"></i>
+          <p>
+            “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+            ipsum suspendisse ultrices gravida. Risus com modo viverra maecenas
+            accumsan lacus vel facilisis.”
+          </p>
+          <div class="writer-name">
+            <h3>Alex Dew</h3>
+            <span>Company of CEO</span>
+          </div>
+        </div>
+        <div class="single-testimonials">
+          <i class="bx bxs-quote-right"></i>
+          <p>
+            “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+            ipsum suspendisse ultrices gravida. Risus com modo viverra maecenas
+            accumsan lacus vel facilisis.”
+          </p>
+          <div class="writer-name">
+            <h3>Juhon Smith</h3>
+            <span>Company of MD</span>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- End Why Choose Us Area -->
-  <!-- Start Expertise Area -->
-  <section class="expertise-area bg-color-two pt-100 pb-70">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Main Areas of Expertise</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis
-          obcaecati inventore laudantium impedit aperiam? Amet ipsam vitae maiores
-          quo
-        </p>
+    <h4>Testimonials</h4>
+  </div>
+</section>
+<!-- End Testimonial Area -->
+<!-- Start Team Area -->
+<section class="team-area team-area-style-three ptb-100">
+  <div class="container">
+    <div class="section-title">
+      <span class="top-title">Our Experts</span>
+      <h2>Diet & Nutrition Experts</h2>
+    </div>
+    <div class="owl-carousel owl-theme team-slider">
+      <div class="single-team">
+        <div class="team-img">
+          <img src="{% static 'images/team/team-1.jpg' %}" alt="Image" />
+          <ul class="team-link">
+            <li>
+              <a href="#">
+                <i class="bx bxl-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-pinterest-alt"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="team-content">
+          <h3>Dr. Angela Russell</h3>
+          <span>Diet & Nutrition</span>
+        </div>
       </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="single-expertises">
-            <i class="flaticon-diet"></i>
-            <h3>Personal Nutrition</h3>
-          </div>
+      <div class="single-team">
+        <div class="team-img">
+          <img src="{% static 'images/team/team-2.jpg' %}" alt="Image" />
+          <ul class="team-link">
+            <li>
+              <a href="#">
+                <i class="bx bxl-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-pinterest-alt"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="single-expertises">
-            <i class="flaticon-nutrition"></i>
-            <h3>Dietitian Nutritionists</h3>
-          </div>
+        <div class="team-content">
+          <h3>Dr. Russell Anderson</h3>
+          <span>Nutritonist</span>
         </div>
-        <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-          <div class="single-expertises">
-            <i class="flaticon-pyramid"></i>
-            <h3>Nutritious Lifestyle</h3>
-          </div>
+      </div>
+      <div class="single-team">
+        <div class="team-img">
+          <img src="{% static 'images/team/team-3.jpg' %}" alt="Image" />
+          <ul class="team-link">
+            <li>
+              <a href="#">
+                <i class="bx bxl-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-pinterest-alt"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="team-content">
+          <h3>Dr. Miriam Landau</h3>
+          <span>Diet & Nutrition</span>
+        </div>
+      </div>
+      <div class="single-team">
+        <div class="team-img">
+          <img src="{% static 'images/team/team-4.jpg' %}" alt="Image" />
+          <ul class="team-link">
+            <li>
+              <a href="#">
+                <i class="bx bxl-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-pinterest-alt"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="team-content">
+          <h3>Dr. Anna Smith</h3>
+          <span>Nutritonist</span>
         </div>
       </div>
     </div>
-  </section>
-  <!-- End Expertise Area -->
-  <!-- Start Testimonial Area -->
-  <section class="testimonials-area testimonials-area-style-two style-about-page pt-100">
-    <div class="container">
-      <div class="testimonials-content">
-        <div class="testimonials-slider owl-carousel owl-theme">
-          <div class="single-testimonials">
-            <i class="bx bxs-quote-right"></i>
-            <p>
-              “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus com modo viverra maecenas
-              accumsan lacus vel facilisis.”
-            </p>
-            <div class="writer-name">
-              <h3>Miriam Landau</h3>
-              <span>Director</span>
-            </div>
-          </div>
-          <div class="single-testimonials">
-            <i class="bx bxs-quote-right"></i>
-            <p>
-              “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus com modo viverra maecenas
-              accumsan lacus vel facilisis.”
-            </p>
-            <div class="writer-name">
-              <h3>Alex Dew</h3>
-              <span>Company of CEO</span>
-            </div>
-          </div>
-          <div class="single-testimonials">
-            <i class="bx bxs-quote-right"></i>
-            <p>
-              “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus com modo viverra maecenas
-              accumsan lacus vel facilisis.”
-            </p>
-            <div class="writer-name">
-              <h3>Juhon Smith</h3>
-              <span>Company of MD</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <h4>Testimonials</h4>
-    </div>
-  </section>
-  <!-- End Testimonial Area -->
-  <!-- Start Team Area -->
-  <section class="team-area team-area-style-three ptb-100">
-    <div class="container">
-      <div class="section-title">
-        <span class="top-title">Our Experts</span>
-        <h2>Diet & Nutrition Experts</h2>
-      </div>
-      <div class="owl-carousel owl-theme team-slider">
-        <div class="single-team">
-          <div class="team-img">
-            <img src="{% static 'images/team/team-1.jpg' %}" alt="Image" />
-            <ul class="team-link">
-              <li>
-                <a href="#">
-                  <i class="bx bxl-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-pinterest-alt"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-instagram"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="team-content">
-            <h3>Dr. Angela Russell</h3>
-            <span>Diet & Nutrition</span>
-          </div>
-        </div>
-        <div class="single-team">
-          <div class="team-img">
-            <img src="{% static 'images/team/team-2.jpg' %}" alt="Image" />
-            <ul class="team-link">
-              <li>
-                <a href="#">
-                  <i class="bx bxl-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-pinterest-alt"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-instagram"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="team-content">
-            <h3>Dr. Russell Anderson</h3>
-            <span>Nutritonist</span>
-          </div>
-        </div>
-        <div class="single-team">
-          <div class="team-img">
-            <img src="{% static 'images/team/team-3.jpg' %}" alt="Image" />
-            <ul class="team-link">
-              <li>
-                <a href="#">
-                  <i class="bx bxl-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-pinterest-alt"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-instagram"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="team-content">
-            <h3>Dr. Miriam Landau</h3>
-            <span>Diet & Nutrition</span>
-          </div>
-        </div>
-        <div class="single-team">
-          <div class="team-img">
-            <img src="{% static 'images/team/team-4.jpg' %}" alt="Image" />
-            <ul class="team-link">
-              <li>
-                <a href="#">
-                  <i class="bx bxl-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-pinterest-alt"></i>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="bx bxl-instagram"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="team-content">
-            <h3>Dr. Anna Smith</h3>
-            <span>Nutritonist</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Team Area -->
+  </div>
+</section>
+<!-- End Team Area -->
 {% endblock content %}

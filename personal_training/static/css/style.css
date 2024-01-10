@@ -4524,7 +4524,7 @@ Product Area Style
 }
 
 .showing-result .showing-top-bar-ordering .nice-select {
-  color: #62bd5e;
+  color: #0c180b;
   border-radius: 0;
   border: none;
   float: unset;
@@ -4559,7 +4559,7 @@ Product Area Style
 }
 
 .showing-result .showing-top-bar-ordering .nice-select .list .option:hover {
-  background-color: #62bd5e !important;
+  background-color: #0c180b !important;
   color: #ffffff;
 }
 

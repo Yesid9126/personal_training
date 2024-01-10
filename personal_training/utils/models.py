@@ -22,3 +22,13 @@ class TrainingModel(models.Model):
         abstract = True
         get_latest_by = "created"
         ordering = ["-created", "-modified"]
+
+
+class Days(models.TextChoices):
+    LUNES = "Lunes", "Lunes"
+    MARTES = "Martes", "Martes"
+    MIERCOLES = "Miercoles", "Miercoles"
+    JUEVES = "Jueves", "Jueves"
+    VIERNES = "Viernes", "Viernes"
+    SABADO = "Sabado", "Sabado"
+    DOMINGO = "Domingo", "Domingo"

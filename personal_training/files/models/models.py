@@ -10,8 +10,9 @@ from django.contrib.admin.decorators import display
 
 # Django
 from django.db import models
-from django.db.models.signals import pre_delete
-from django.dispatch import receiver
+
+# from django.db.models.signals import pre_delete
+# from django.dispatch import receiver
 from django.template.loader import get_template
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
@@ -48,17 +49,17 @@ class Folder(TrainingModel):
             os.rmdir(folder_path)
 
 
-@receiver(pre_delete, sender=Folder)
-def delete_folder(sender, instance, **kwargs):
-    # Al eliminar un modelo Carpeta, borra la carpeta del sistema de archivos
-    folder_path = os.path.join(settings.MEDIA_ROOT, instance.slug_name)
-    if os.path.exists(folder_path):
-        for root, dirs, files in os.walk(folder_path, topdown=False):
-            for slug_name in files:
-                os.remove(os.path.join(root, slug_name))
-            for slug_name in dirs:
-                os.rmdir(os.path.join(root, slug_name))
-        os.rmdir(folder_path)
+# @receiver(pre_delete, sender=Folder)
+# def delete_folder(sender, instance, **kwargs):
+#     # Al eliminar un modelo Carpeta, borra la carpeta del sistema de archivos
+#     folder_path = os.path.join(settings.MEDIA_ROOT, instance.slug_name)
+#     if os.path.exists(folder_path):
+#         for root, dirs, files in os.walk(folder_path, topdown=False):
+#             for slug_name in files:
+#                 os.remove(os.path.join(root, slug_name))
+#             for slug_name in dirs:
+#                 os.rmdir(os.path.join(root, slug_name))
+#         os.rmdir(folder_path)
 
 
 def file_upload_to(instance, filename):

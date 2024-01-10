@@ -1,643 +1,745 @@
-{% extends "personal_training_base.html" %}
-
-{% load static %}
-
-{% block preload %}
-  <!-- Start Preloader Area -->
-  <!-- End Preloader Area -->
-{% endblock preload %}
-{% block content %}
-  <!-- Start Page Title Area -->
-  <div class="page-title-area bg-14">
-    <div class="container">
-      <div class="page-title-content">
-        <h2>Products</h2>
-        <ul>
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>Shop</li>
-          <li class="active">Products</li>
-        </ul>
-      </div>
+{% extends "personal_training_base.html" %} {% load static %} {% block preload %}
+<!-- Start Preloader Area -->
+<!-- End Preloader Area -->
+{% endblock preload %} {% block content %}
+<!-- Start Page Title Area -->
+<!-- End Page Title Area -->
+<!-- Start Product Area -->
+<section class="product-area ptb-100">
+  <div class="container">
+    <div class="section-title">
+      <span>What We Offer</span>
+      <h2>Nuestros Productos</h2>
     </div>
-  </div>
-  <!-- End Page Title Area -->
-  <!-- Start Product Area -->
-  <section class="product-area ptb-100">
-    <div class="container">
-      <div class="showing-result">
-        <div class="row align-items-center">
-          <div class="col-lg-6 col-sm-6">
-            <div class="showing-result-count">
-              <p>Showing 1-8 of 14 Results</p>
-            </div>
-          </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="showing-top-bar-ordering">
-              <select>
-                <option value="1">Default Sorting</option>
-                <option value="2">Pitahaya Dragon</option>
-                <option value="0">Corn</option>
-                <option value="3">Cabbage</option>
-                <option value="4">Raspberries</option>
-                <option value="5">Blackberries</option>
-                <option value="5">Pomegranate</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-sm-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img src="{% static 'images/product/product-1.jpg' %}" alt="Image" />
-              <span>New</span>
-              <ul>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bx bx-show-alt"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="default-btn" href="shopping-cart.html">
-                    <i class="bx bx-cart"></i>
-                    Add to Cart
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="bx bx-heart"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <a href="product-details.html">
-              <h3>Pitahaya Dragon</h3>
-            </a>
-            <ul class="rating">
+    <div class="showing-result">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-sm-6">
+          <div class="sidebar-widget tags mb-0">
+            <h3>Filtros</h3>
+            {% if tags %}
+            <ul>
+              {% for tag in tags %} {% if tag.is_product %}
               <li>
-                <i class="bx bxs-star"></i>
+                <a href="#">{{ tag.name }}</a>
               </li>
+              {% endif %} {% endfor %}
+            </ul>
+            {% else %}
+            <ul>
               <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
+                <a href="#">Nutrition</a>
               </li>
             </ul>
-            <span>$50.00</span>
+            {% endif %}
           </div>
         </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img src="{% static 'images/product/product-2.jpg' %}" alt="Image" />
-              <span>New</span>
-              <ul>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bx bx-show-alt"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="default-btn" href="shopping-cart.html">
-                    <i class="bx bx-cart"></i>
-                    Add to Cart
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="bx bx-heart"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <a href="product-details.html">
-              <h3>Corn</h3>
-            </a>
-            <ul class="rating">
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-            </ul>
-            <span>$30.00</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img src="{% static 'images/product/product-3.jpg' %}" alt="Image" />
-              <span class="red">Sale</span>
-              <ul>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bx bx-show-alt"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="default-btn" href="shopping-cart.html">
-                    <i class="bx bx-cart"></i>
-                    Add to Cart
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="bx bx-heart"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <a href="product-details.html">
-              <h3>Cabbage</h3>
-            </a>
-            <ul class="rating">
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-            </ul>
-            <span>$20.00</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img src="{% static 'images/product/product-4.jpg' %}" alt="Image" />
-              <span>New</span>
-              <ul>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bx bx-show-alt"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="default-btn" href="shopping-cart.html">
-                    <i class="bx bx-cart"></i>
-                    Add to Cart
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="bx bx-heart"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <a href="product-details.html">
-              <h3>Raspberries</h3>
-            </a>
-            <ul class="rating">
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-            </ul>
-            <span>$70.00</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img src="{% static 'images/product/product-5.jpg' %}" alt="Image" />
-              <span class="red">Sale</span>
-              <ul>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bx bx-show-alt"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="default-btn" href="shopping-cart.html">
-                    <i class="bx bx-cart"></i>
-                    Add to Cart
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="bx bx-heart"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <a href="product-details.html">
-              <h3>Blackberries</h3>
-            </a>
-            <ul class="rating">
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-            </ul>
-            <span>$100.00</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img src="{% static 'images/product/product-6.jpg' %}" alt="Image" />
-              <span>New</span>
-              <ul>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bx bx-show-alt"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="default-btn" href="shopping-cart.html">
-                    <i class="bx bx-cart"></i>
-                    Add to Cart
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="bx bx-heart"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <a href="product-details.html">
-              <h3>Pomegranate</h3>
-            </a>
-            <ul class="rating">
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-            </ul>
-            <span>$75.00</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img src="{% static 'images/product/product-7.jpg' %}" alt="Image" />
-              <span class="red">Sale</span>
-              <ul>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bx bx-show-alt"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="default-btn" href="shopping-cart.html">
-                    <i class="bx bx-cart"></i>
-                    Add to Cart
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="bx bx-heart"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <a href="product-details.html">
-              <h3>Cauliflower</h3>
-            </a>
-            <ul class="rating">
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-            </ul>
-            <span>$20.00</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img src="{% static 'images/product/product-8.jpg' %}" alt="Image" />
-              <span>New</span>
-              <ul>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bx bx-show-alt"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="default-btn" href="shopping-cart.html">
-                    <i class="bx bx-cart"></i>
-                    Add to Cart
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="bx bx-heart"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <a href="product-details.html">
-              <h3>Strawberry</h3>
-            </a>
-            <ul class="rating">
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-            </ul>
-            <span>$40.00</span>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6 offset-md-3 offset-lg-0">
-          <div class="single-product">
-            <div class="product-img">
-              <img src="{% static 'images/product/product-9.jpg' %}" alt="Image" />
-              <span class="red">Sale</span>
-              <ul>
-                <li>
-                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="bx bx-show-alt"></i>
-                  </a>
-                </li>
-                <li>
-                  <a class="default-btn" href="shopping-cart.html">
-                    <i class="bx bx-cart"></i>
-                    Add to Cart
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="bx bx-heart"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <a href="product-details.html">
-              <h3>Bell Pepper</h3>
-            </a>
-            <ul class="rating">
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-              <li>
-                <i class="bx bxs-star"></i>
-              </li>
-            </ul>
-            <span>$30.00</span>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="pagination-area">
-            <span class="page-numbers current" aria-current="page">1</span>
-            <a href="#" class="page-numbers">2</a>
-            <a href="#" class="page-numbers">3</a>
-            <a href="#" class="next page-numbers">
-              <i class="flaticon-right-arrow"></i>
-            </a>
+        <div class="col-lg-6 col-sm-6">
+          <div style="display: flex; flex-direction: column; align-items: flex-end;">
+            <h3>Ordenar Por</h3>
+            <select>
+              <option value="1">Default Sorting</option>
+              <option value="2">Pitahaya Dragon</option>
+              <option value="0">Corn</option>
+              <option value="3">Cabbage</option>
+              <option value="4">Raspberries</option>
+              <option value="5">Blackberries</option>
+              <option value="5">Pomegranate</option>
+            </select>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- End Product Area -->
-  <!-- Start Product View One Area -->
-  <div class="modal fade product-view-one" id="exampleModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <button type="button" class="close" data-bs-dismiss="modal">
-          <span aria-hidden="true">
-            <i class="bx bx-x"></i>
-          </span>
-        </button>
-        <div class="row align-items-center">
-          <div class="col-lg-6 col-md-6">
-            <div class="product-view-one-image">
-              <div id="big" class="owl-carousel owl-theme">
-                <div class="item">
-                  <img src="{% static 'images/product/product-1.jpg' %}" alt="Image" />
-                </div>
-                <div class="item">
-                  <img src="{% static 'images/product/product-2.jpg' %}" alt="Image" />
-                </div>
-                <div class="item">
-                  <img src="{% static 'images/product/product-3.jpg' %}" alt="Image" />
-                </div>
-                <div class="item">
-                  <img src="{% static 'images/product/product-4.jpg' %}" alt="Image" />
-                </div>
-                <div class="item">
-                  <img src="{% static 'images/product/product-5.jpg' %}" alt="Image" />
-                </div>
-                <div class="item">
-                  <img src="{% static 'images/product/product-6.jpg' %}" alt="Image" />
-                </div>
-              </div>
-              <div id="thumbs" class="owl-carousel owl-theme">
-                <div class="item">
-                  <img src="{% static 'images/product/product-1.jpg' %}" alt="Image" />
-                </div>
-                <div class="item">
-                  <img src="{% static 'images/product/product-2.jpg' %}" alt="Image" />
-                </div>
-                <div class="item">
-                  <img src="{% static 'images/product/product-3.jpg' %}" alt="Image" />
-                </div>
-                <div class="item">
-                  <img src="{% static 'images/product/product-4.jpg' %}" alt="Image" />
-                </div>
-                <div class="item">
-                  <img src="{% static 'images/product/product-5.jpg' %}" alt="Image" />
-                </div>
-                <div class="item">
-                  <img src="{% static 'images/product/product-6.jpg' %}" alt="Image" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div class="product-content">
-              <h3>
-                <a href="#">Pitahaya Dragon</a>
-              </h3>
-              <div class="price">
-                <span class="new-price">$50.00</span>
-              </div>
-              <div class="product-review">
-                <div class="rating">
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                </div>
-                <a href="#" class="rating-count">4 Reviews</a>
-              </div>
-              <ul class="product-info">
-                <li>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                    magnam ad reprehenderit fuga nam, non odit necessitatibus
-                    facilis beatae temporibus
-                  </p>
-                </li>
-                <li>
-                  <span>Availability:</span> <a href="#">In Stock (8 Items)</a>
-                </li>
-                <li>
-                  <span>Product Type:</span> <a href="#">Fruit</a>
-                </li>
-              </ul>
-              <div class="product-color-switch">
-                <h4>Color:</h4>
-                <ul>
-                  <li>
-                    <a href="#" title="Black" class="color-black"></a>
-                  </li>
-                  <li>
-                    <a href="#" title="White" class="color-white"></a>
-                  </li>
-                  <li class="active">
-                    <a href="#" title="Green" class="color-green"></a>
-                  </li>
-                  <li>
-                    <a href="#" title="Yellow Green" class="color-yellowgreen"></a>
-                  </li>
-                  <li>
-                    <a href="#" title="Teal" class="color-teal"></a>
-                  </li>
-                </ul>
-              </div>
-              <div class="product-add-to-cart">
-                <div class="input-counter">
-                  <span class="minus-btn">
-                    <i class="bx bx-minus"></i>
-                  </span>
-                  <input type="text" value="1" />
-                  <span class="plus-btn">
-                    <i class="bx bx-plus"></i>
-                  </span>
-                </div>
-                <button type="submit" class="default-btn">
+    <div class="row">
+      <div class="col-lg-4 col-sm-6">
+        <div class="single-product">
+          <div class="product-img">
+            <img
+              src="{% static 'images/product/product-1.jpg' %}"
+              alt="Image"
+            />
+            <span>New</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i class="bx bx-show-alt"></i>
+                </a>
+              </li>
+              <li>
+                <a class="default-btn" href="shopping-cart.html">
+                  <i class="bx bx-cart"></i>
                   Add to Cart
-                  <i class="flaticon-right"></i>
-                </button>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-heart"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="product-details.html">
+            <h3>Pitahaya Dragon</h3>
+          </a>
+          <ul class="rating">
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+          </ul>
+          <span>$50.00</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="single-product">
+          <div class="product-img">
+            <img
+              src="{% static 'images/product/product-2.jpg' %}"
+              alt="Image"
+            />
+            <span>New</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i class="bx bx-show-alt"></i>
+                </a>
+              </li>
+              <li>
+                <a class="default-btn" href="shopping-cart.html">
+                  <i class="bx bx-cart"></i>
+                  Add to Cart
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-heart"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="product-details.html">
+            <h3>Corn</h3>
+          </a>
+          <ul class="rating">
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+          </ul>
+          <span>$30.00</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="single-product">
+          <div class="product-img">
+            <img
+              src="{% static 'images/product/product-3.jpg' %}"
+              alt="Image"
+            />
+            <span class="red">Sale</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i class="bx bx-show-alt"></i>
+                </a>
+              </li>
+              <li>
+                <a class="default-btn" href="shopping-cart.html">
+                  <i class="bx bx-cart"></i>
+                  Add to Cart
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-heart"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="product-details.html">
+            <h3>Cabbage</h3>
+          </a>
+          <ul class="rating">
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+          </ul>
+          <span>$20.00</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="single-product">
+          <div class="product-img">
+            <img
+              src="{% static 'images/product/product-4.jpg' %}"
+              alt="Image"
+            />
+            <span>New</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i class="bx bx-show-alt"></i>
+                </a>
+              </li>
+              <li>
+                <a class="default-btn" href="shopping-cart.html">
+                  <i class="bx bx-cart"></i>
+                  Add to Cart
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-heart"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="product-details.html">
+            <h3>Raspberries</h3>
+          </a>
+          <ul class="rating">
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+          </ul>
+          <span>$70.00</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="single-product">
+          <div class="product-img">
+            <img
+              src="{% static 'images/product/product-5.jpg' %}"
+              alt="Image"
+            />
+            <span class="red">Sale</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i class="bx bx-show-alt"></i>
+                </a>
+              </li>
+              <li>
+                <a class="default-btn" href="shopping-cart.html">
+                  <i class="bx bx-cart"></i>
+                  Add to Cart
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-heart"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="product-details.html">
+            <h3>Blackberries</h3>
+          </a>
+          <ul class="rating">
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+          </ul>
+          <span>$100.00</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="single-product">
+          <div class="product-img">
+            <img
+              src="{% static 'images/product/product-6.jpg' %}"
+              alt="Image"
+            />
+            <span>New</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i class="bx bx-show-alt"></i>
+                </a>
+              </li>
+              <li>
+                <a class="default-btn" href="shopping-cart.html">
+                  <i class="bx bx-cart"></i>
+                  Add to Cart
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-heart"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="product-details.html">
+            <h3>Pomegranate</h3>
+          </a>
+          <ul class="rating">
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+          </ul>
+          <span>$75.00</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="single-product">
+          <div class="product-img">
+            <img
+              src="{% static 'images/product/product-7.jpg' %}"
+              alt="Image"
+            />
+            <span class="red">Sale</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i class="bx bx-show-alt"></i>
+                </a>
+              </li>
+              <li>
+                <a class="default-btn" href="shopping-cart.html">
+                  <i class="bx bx-cart"></i>
+                  Add to Cart
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-heart"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="product-details.html">
+            <h3>Cauliflower</h3>
+          </a>
+          <ul class="rating">
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+          </ul>
+          <span>$20.00</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="single-product">
+          <div class="product-img">
+            <img
+              src="{% static 'images/product/product-8.jpg' %}"
+              alt="Image"
+            />
+            <span>New</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i class="bx bx-show-alt"></i>
+                </a>
+              </li>
+              <li>
+                <a class="default-btn" href="shopping-cart.html">
+                  <i class="bx bx-cart"></i>
+                  Add to Cart
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-heart"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="product-details.html">
+            <h3>Strawberry</h3>
+          </a>
+          <ul class="rating">
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+          </ul>
+          <span>$40.00</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 offset-md-3 offset-lg-0">
+        <div class="single-product">
+          <div class="product-img">
+            <img
+              src="{% static 'images/product/product-9.jpg' %}"
+              alt="Image"
+            />
+            <span class="red">Sale</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i class="bx bx-show-alt"></i>
+                </a>
+              </li>
+              <li>
+                <a class="default-btn" href="shopping-cart.html">
+                  <i class="bx bx-cart"></i>
+                  Add to Cart
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-heart"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="product-details.html">
+            <h3>Bell Pepper</h3>
+          </a>
+          <ul class="rating">
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+          </ul>
+          <span>$30.00</span>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="pagination-area">
+          <span class="page-numbers current" aria-current="page">1</span>
+          <a href="#" class="page-numbers">2</a>
+          <a href="#" class="page-numbers">3</a>
+          <a href="#" class="next page-numbers">
+            <i class="flaticon-right-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Product Area -->
+<!-- Start Product View One Area -->
+<div class="modal fade product-view-one" id="exampleModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" data-bs-dismiss="modal">
+        <span aria-hidden="true">
+          <i class="bx bx-x"></i>
+        </span>
+      </button>
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-6">
+          <div class="product-view-one-image">
+            <div id="big" class="owl-carousel owl-theme">
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-1.jpg' %}"
+                  alt="Image"
+                />
               </div>
-              <div class="share-this-product">
-                <h3>Share This Product</h3>
-                <ul>
-                  <li>
-                    <a href="https://www.facebook.com/" target="_blank">
-                      <i class="bx bxl-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.instagram.com/" target="_blank">
-                      <i class="bx bxl-instagram"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/" target="_blank">
-                      <i class="bx bxl-linkedin-square"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://twitter.com/" target="_blank">
-                      <i class="bx bxl-twitter"></i>
-                    </a>
-                  </li>
-                </ul>
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-2.jpg' %}"
+                  alt="Image"
+                />
               </div>
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-3.jpg' %}"
+                  alt="Image"
+                />
+              </div>
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-4.jpg' %}"
+                  alt="Image"
+                />
+              </div>
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-5.jpg' %}"
+                  alt="Image"
+                />
+              </div>
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-6.jpg' %}"
+                  alt="Image"
+                />
+              </div>
+            </div>
+            <div id="thumbs" class="owl-carousel owl-theme">
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-1.jpg' %}"
+                  alt="Image"
+                />
+              </div>
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-2.jpg' %}"
+                  alt="Image"
+                />
+              </div>
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-3.jpg' %}"
+                  alt="Image"
+                />
+              </div>
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-4.jpg' %}"
+                  alt="Image"
+                />
+              </div>
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-5.jpg' %}"
+                  alt="Image"
+                />
+              </div>
+              <div class="item">
+                <img
+                  src="{% static 'images/product/product-6.jpg' %}"
+                  alt="Image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="product-content">
+            <h3>
+              <a href="#">Pitahaya Dragon</a>
+            </h3>
+            <div class="price">
+              <span class="new-price">$50.00</span>
+            </div>
+            <div class="product-review">
+              <div class="rating">
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+                <i class="bx bxs-star"></i>
+              </div>
+              <a href="#" class="rating-count">4 Reviews</a>
+            </div>
+            <ul class="product-info">
+              <li>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+                  magnam ad reprehenderit fuga nam, non odit necessitatibus
+                  facilis beatae temporibus
+                </p>
+              </li>
+              <li>
+                <span>Availability:</span> <a href="#">In Stock (8 Items)</a>
+              </li>
+              <li><span>Product Type:</span> <a href="#">Fruit</a></li>
+            </ul>
+            <div class="product-color-switch">
+              <h4>Color:</h4>
+              <ul>
+                <li>
+                  <a href="#" title="Black" class="color-black"></a>
+                </li>
+                <li>
+                  <a href="#" title="White" class="color-white"></a>
+                </li>
+                <li class="active">
+                  <a href="#" title="Green" class="color-green"></a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    title="Yellow Green"
+                    class="color-yellowgreen"
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" title="Teal" class="color-teal"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="product-add-to-cart">
+              <div class="input-counter">
+                <span class="minus-btn">
+                  <i class="bx bx-minus"></i>
+                </span>
+                <input type="text" value="1" />
+                <span class="plus-btn">
+                  <i class="bx bx-plus"></i>
+                </span>
+              </div>
+              <button type="submit" class="default-btn">
+                Add to Cart
+                <i class="flaticon-right"></i>
+              </button>
+            </div>
+            <div class="share-this-product">
+              <h3>Share This Product</h3>
+              <ul>
+                <li>
+                  <a href="https://www.facebook.com/" target="_blank">
+                    <i class="bx bxl-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/" target="_blank">
+                    <i class="bx bxl-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/" target="_blank">
+                    <i class="bx bxl-linkedin-square"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/" target="_blank">
+                    <i class="bx bxl-twitter"></i>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- End Product View One Area -->
+</div>
+<!-- End Product View One Area -->
 {% endblock content %}

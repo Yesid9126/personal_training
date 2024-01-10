@@ -1,146 +1,187 @@
-{% extends "personal_training_base.html" %}
-
-{% load static %}
-
-{% block preload %}
-  <!-- Start Preloader Area -->
-  <!-- End Preloader Area -->
-{% endblock preload %}
-{% block content %}
-  <!-- Start Page Title Area -->
-  <div class="page-title-area bg-11">
-    <div class="container">
-      <div class="page-title-content">
-        <h2>Services</h2>
-        <ul>
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>Services</li>
-          <li class="active">Services</li>
-        </ul>
+{% extends "personal_training_base.html" %} {% load static %} {% block preload %}
+<!-- Start Preloader Area -->
+<!-- End Preloader Area -->
+{% endblock preload %} {% block content %}
+<!-- Start Page Title Area -->
+<!-- End Page Title Area -->
+<!-- Start What We Offer Area -->
+<section class="what-we-offer-area services-page-style pt-100 pb-70">
+  <div class="container">
+    <div class="section-title">
+      <span>What We Offer</span>
+      <h2>Nuestros Servicios</h2>
+    </div>
+    <div class="showing-result">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-sm-6">
+          <div class="sidebar-widget tags mb-0">
+            <h3>Filtros</h3>
+            {% if tags %}
+            <ul>
+              {% for tag in tags %} {% if tag.is_service %}
+              <li>
+                <a href="#">{{ tag.name }}</a>
+              </li>
+              {% endif %} {% endfor %}
+            </ul>
+            {% else %}
+            <ul>
+              <li>
+                <a href="#">Nutrition</a>
+              </li>
+            </ul>
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div style="display: flex; flex-direction: column; align-items: flex-end;">
+            <h3>Ordenar Por</h3>
+            <select>
+              <option value="1">Default Sorting</option>
+              <option value="2">Pitahaya Dragon</option>
+              <option value="0">Corn</option>
+              <option value="3">Cabbage</option>
+              <option value="4">Raspberries</option>
+              <option value="5">Blackberries</option>
+              <option value="5">Pomegranate</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-4 col-md-6">
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img
+              src="{% static 'images/what-we-offer/what-we-offer-1.jpg' %}"
+              alt="Image"
+            />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Nutrition Response Testing</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img
+              src="{% static 'images/what-we-offer/what-we-offer-2.jpg' %}"
+              alt="Image"
+            />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Weight Loss Program</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img
+              src="{% static 'images/what-we-offer/what-we-offer-3.jpg' %}"
+              alt="Image"
+            />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Nutrition Response Testing</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img
+              src="{% static 'images/what-we-offer/what-we-offer-4.jpg' %}"
+              alt="Image"
+            />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Child Nutrition</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img
+              src="{% static 'images/what-we-offer/what-we-offer-5.jpg' %}"
+              alt="Image"
+            />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Fitness & Performance</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img
+              src="{% static 'images/what-we-offer/what-we-offer-6.jpg' %}"
+              alt="Image"
+            />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Health and Nutrition Testing</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12" style="text-align: center">
+        <div class="pagination-area">
+          <span class="page-numbers current" aria-current="page">1</span>
+          <a href="#" class="page-numbers">2</a>
+          <a href="#" class="page-numbers">3</a>
+          <a href="#" class="next page-numbers">
+            <i class="flaticon-right-arrow"></i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
-  <!-- End Page Title Area -->
-  <!-- Start What We Offer Area -->
-  <section class="what-we-offer-area services-page-style pt-100 pb-70">
-    <div class="container">
-      <div class="section-title">
-        <span>What We Offer</span>
-        <h2>Our Diet & Nutrition Services</h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="single-what-we-offer">
-            <a href="services-details.html">
-              <img src="{% static 'images/what-we-offer/what-we-offer-1.jpg' %}"
-                   alt="Image" />
-            </a>
-            <div class="what-we-offer-content">
-              <h3>
-                <a href="services-details.html">Nutrition Response Testing</a>
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna.
-              </p>
-              <a href="services-details.html" class="read-more">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="single-what-we-offer">
-            <a href="services-details.html">
-              <img src="{% static 'images/what-we-offer/what-we-offer-2.jpg' %}"
-                   alt="Image" />
-            </a>
-            <div class="what-we-offer-content">
-              <h3>
-                <a href="services-details.html">Weight Loss Program</a>
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna.
-              </p>
-              <a href="services-details.html" class="read-more">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="single-what-we-offer">
-            <a href="services-details.html">
-              <img src="{% static 'images/what-we-offer/what-we-offer-3.jpg' %}"
-                   alt="Image" />
-            </a>
-            <div class="what-we-offer-content">
-              <h3>
-                <a href="services-details.html">Nutrition Response Testing</a>
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna.
-              </p>
-              <a href="services-details.html" class="read-more">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="single-what-we-offer">
-            <a href="services-details.html">
-              <img src="{% static 'images/what-we-offer/what-we-offer-4.jpg' %}"
-                   alt="Image" />
-            </a>
-            <div class="what-we-offer-content">
-              <h3>
-                <a href="services-details.html">Child Nutrition</a>
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna.
-              </p>
-              <a href="services-details.html" class="read-more">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="single-what-we-offer">
-            <a href="services-details.html">
-              <img src="{% static 'images/what-we-offer/what-we-offer-5.jpg' %}"
-                   alt="Image" />
-            </a>
-            <div class="what-we-offer-content">
-              <h3>
-                <a href="services-details.html">Fitness & Performance</a>
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna.
-              </p>
-              <a href="services-details.html" class="read-more">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="single-what-we-offer">
-            <a href="services-details.html">
-              <img src="{% static 'images/what-we-offer/what-we-offer-6.jpg' %}"
-                   alt="Image" />
-            </a>
-            <div class="what-we-offer-content">
-              <h3>
-                <a href="services-details.html">Health and Nutrition Testing</a>
-              </h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna.
-              </p>
-              <a href="services-details.html" class="read-more">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End What We Offer Area -->
+</section>
+<!-- End What We Offer Area -->
 {% endblock content %}
