@@ -24,3 +24,8 @@ class FollowUsAdmin(admin.ModelAdmin):
 @admin.register(Tags)
 class TagsAdmin(admin.ModelAdmin):
     list_display = ["pk", "name"]
+    search_fields = ["name"]
+    list_filter = [
+        ("is_course", admin.BooleanFieldListFilter),
+        ("is_product", admin.BooleanFieldListFilter),
+    ]

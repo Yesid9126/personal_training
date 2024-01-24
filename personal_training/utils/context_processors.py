@@ -11,4 +11,5 @@ def settings_context(request):
     )
     followus = FollowUs.objects.first()
     tags = Tags.objects.all().values()
+    # print(tags)
     return {"contacts": contacts, "days": schedule, "socials": followus, "tags": tags}

@@ -78,10 +78,13 @@ class File(models.Model):
     order = models.IntegerField(_("Órden"), default=0)
     file = models.FileField(_("Archivo"), upload_to=file_upload_to)
 
-    @display(description=_("Preview"))
+    @display(description=_("Preview Image"))
     def my_image_thumbnail(self):
-        return get_template("files/my_image_thumbnail_template.html").render(
+        return get_template("files/my_source_thumbnail_template.html").render(
             {
+                "image": True,
+                "video": False,
+                "audio": False,
                 "field_name": "file",
                 "model_name": "file",
                 "field_description": "description",

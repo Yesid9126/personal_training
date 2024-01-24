@@ -11,7 +11,7 @@ SECRET_KEY = env(
     default="TcrcMUWWTPMKr6di0kfSra6OWgJe5ZvA7Bk3WF1hOI0XTxXq9PtK2iE3xd8ouHHH",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "vimeo.com", "https://vimeo.com/"]
 
 # CACHES
 # ------------------------------------------------------------------------------

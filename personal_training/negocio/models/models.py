@@ -47,7 +47,7 @@ class FollowUs(TrainingModel):
 class Tags(TrainingModel):
     name = models.CharField(max_length=255)
     is_product = models.BooleanField(default=False)
-    is_service = models.BooleanField(default=False)
+    is_course = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Filtro"
