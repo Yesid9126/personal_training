@@ -1,0 +1,191 @@
+{% extends "personal_training_base.html" %}
+<!-- Start Preloader Area -->
+{% load static %} {% block preload %}
+<!-- Start Preloader Area -->
+<!-- End Preloader Area -->
+{% endblock preload %} {% block content %}
+<!-- Start Page Title Area -->
+<!-- End Page Title Area -->
+<!-- Start What We Offer Area -->
+<section class="what-we-offer-area services-page-style pt-100 pb-70">
+  <div class="container">
+    <div class="section-title">
+      <span>What We Offer</span>
+      <h2>Nuestros Servicios</h2>
+    </div>
+    <div class="search">
+      <input type="text" placeholder="Search..." id="search" value="{{search}}"/>
+      <button onclick="search()">
+        <i class="bx bx-search-alt"></i>
+      </button>
+    </div>
+    <div class="showing-result">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-sm-6">
+          <div class="sidebar-widget tags mb-0">
+            <h3>Filtros</h3>
+            {% if tags %}
+            <ul>
+              {% for tag in tags %} {% if tag.is_course %}
+              <li>
+                {% if tag.id in filters %}
+                <a href="#" onclick="manageFilters(this, {{ tag.id }})" style="background-color: #62bd5e;">{{ tag.name }}</a>
+                {% else %}
+                <a href="#" onclick="manageFilters(this, {{ tag.id }})">{{ tag.name }}</a>
+                {% endif %}
+              </li>
+              {% endif %} {% endfor %}
+            </ul>
+            {% else %}
+            <ul>
+              <li>
+                <a href="#">Nutrition</a>
+              </li>
+            </ul>
+            {% endif %}
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div
+            class="showing-top-bar-ordering"
+            style="display: flex; flex-direction: column"
+          >
+            <h3>Ordenar Por</h3>
+            <select id="order_by">
+              <option value="-modified" {% if order_by == "-modified" %} selected {% endif %}>Recientes</option>
+              <option value="modified" {% if order_by == "modified" %} selected {% endif %}>Antiguos</option>
+              <option value="-price" {% if order_by == "-price" %} selected {% endif %}>Caros</option>
+              <option value="price" {% if order_by == "price" %} selected {% endif %}>Baratos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      {% for course in courses %}
+      <div class="col-lg-4 col-sm-6">
+        <div class="single-product">
+          <div class="product-img">
+            <img
+              src="{{ course.image.url }}"
+              alt="Image"
+            />
+            {% if course.is_new and course.is_sale %}
+            <span>
+              New
+              {% if course.is_sale %}
+                <span class="red">{{ course.discount }}%</span>
+              {% endif %}
+            </span>
+            {% elif course.is_new %}
+            <span>New</span>
+            {% elif course.is_sale %}
+            <span class="red">{{ course.discount }}%</span>
+            {% endif %}
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <i class="bx bx-show-alt"></i>
+                </a>
+              </li>
+              <li>
+                <a class="default-btn" href="shopping-cart.html">
+                  <i class="bx bx-cart"></i>
+                  Add to Cart
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bx bx-heart"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="product-details.html">
+            <h3>{{ course.name }}</h3>
+          </a>
+          <ul class="rating">
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+            <li>
+              <i class="bx bxs-star"></i>
+            </li>
+          </ul>
+          <div style="display: flex; justify-content: space-evenly">
+            <span>${{ course.price }}</span>
+            {% if course.is_sale %}
+            <span style="color: red; text-decoration: line-through">${{ course.old_price }}</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="col-12" style="text-align: center">
+        <div class="pagination-area">
+          {% if page_previous.flat %}
+          <a href="{{page_previous.url  }}" class="next page-numbers">
+            <i class="flaticon-left-arrow"></i>
+          </a>
+          {% endif %}
+          {% for page in pages %}
+          {% if page.number == page_number %}
+          <span class="page-numbers current" aria-current="page">{{page_number}}</span>
+          {% else %}
+          <a href="{{page.url}}" class="page-numbers">{{page.number}}</a>
+          {% endif %}
+          {% endfor %}
+          {% if page_next.flat %}
+          <a href="{{page_next.url}}" class="next page-numbers">
+            <i class="flaticon-right-arrow"></i>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+<!-- End What We Offer Area -->
+{% block scripts %}
+<script>
+  let filters = {{ filters }};
+  function manageFilters(ele, id) {
+    if (!filters.includes(id)) {
+      filters.push(id);
+    } else {
+      filters.splice(filters.indexOf(id), 1);
+    }
+    if (ele.hasAttribute("style")) {
+      ele.removeAttribute("style");
+    } else {
+      ele.style.backgroundColor = "#62bd5e";
+    }
+    console.log(filters);
+  }
+
+  function search() {
+    let searchInput = document.getElementById("search");
+    let orderByInput = document.getElementById("order_by");
+    let queryParams = new URLSearchParams();
+    queryParams.append("filters", filters);
+    queryParams.append("search", searchInput.value);
+    queryParams.append("order_by", orderByInput.value);
+    let url = "/courses/?" + queryParams.toString();
+    window.location.href = url;
+  }
+</script>
+{% endblock %}

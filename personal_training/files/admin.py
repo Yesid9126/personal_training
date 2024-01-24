@@ -9,7 +9,7 @@
 #     model = File
 #     autocomplete_fields = ["folder"]
 #     extra = 0
-#     readonly_fields = ["slug_name", "my_image_thumbnail"]
+#     readonly_fields = ["slug_name", "my_source_thumbnail"]
 
 
 # @admin.register(Folder)
@@ -31,7 +31,7 @@
 #     list_filter = [
 #         "folder__name",
 #     ]
-#     readonly_fields = ["slug_name", "my_image_thumbnail"]
+#     readonly_fields = ["slug_name", "my_source_thumbnail"]
 
 #     # def folder(self, obj):
 #     #     return obj.folder.name

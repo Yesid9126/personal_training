@@ -1,10 +1,35 @@
-<a href="{% if src %}{{ src }}{% else %}http://atrilco.com/wp-content/uploads/2017/11/ef3-placeholder-image.jpg{% endif %}"
-   id="image-link-{{ field_name }}"
-   target="_blank">
-  <img src="{% if src %}{{ src }}{% else %}http://atrilco.com/wp-content/uploads/2017/11/ef3-placeholder-image.jpg{% endif %}"
-       id="image-thumbnail-{{ field_name }}"
-       width="450"
-       height="300" />
+<a
+  href="{% if src %}{{ src }}{% else %}http://atrilco.com/wp-content/uploads/2017/11/ef3-placeholder-image.jpg{% endif %}"
+  id="source-link-{{ field_name }}"
+  target="_blank"
+>
+  {% if image %}
+  <img
+    src="{% if src %}{{ src }}{% else %}http://atrilco.com/wp-content/uploads/2017/11/ef3-placeholder-image.jpg{% endif %}"
+    id="source-thumbnail-{{ field_name }}"
+    width="450"
+    height="300"
+  />
+  {% elif video %}
+  <video
+    src="{% if src %}{{ src }}{% else %}http://atrilco.com/wp-content/uploads/2017/11/ef3-placeholder-image.jpg{% endif %}"
+    id="source-thumbnail-{{ field_name }}"
+    tabindex="-1"
+    style="background-color: transparent"
+    preload="metadata"
+    width="450"
+    height="300"
+    preload="metadata"
+    controls
+  />
+  {% elif audio %}
+  <audio
+    src="{% if src %}{{ src }}{% else %}http://atrilco.com/wp-content/uploads/2017/11/ef3-placeholder-image.jpg{% endif %}"
+    id="source-thumbnail-{{ field_name }}"
+    width="450"
+    height="300"
+  />
+  {% endif %}
 </a>
 <script>
   // Vainilla javascript 🚀 (Babel defaults, not ie 11, not ie_mob 11)
@@ -26,9 +51,9 @@
         console.log("------------------");
         console.log(i);
         final_fieldName = `_set-${i}-${modelNmae}`;
-        document.getElementById("image-thumbnail-{{ field_name }}").id +=
+        document.getElementById("source-thumbnail-{{ field_name }}").id +=
           final_fieldName;
-        document.getElementById("image-link-{{ field_name }}").id +=
+        document.getElementById("source-link-{{ field_name }}").id +=
           final_fieldName;
         changeThumbnail("{{ field_name }}" + final_fieldName);
       }
@@ -40,12 +65,12 @@
   function changeThumbnail(fieldName) {
     document
       .getElementById(`id_${fieldName}`)
-      .addEventListener("change", function(e) {
+      .addEventListener("change", function (e) {
         const reader = new FileReader();
-        reader.onload = function(e) {
-          document.getElementById(`image-thumbnail-${fieldName}`).src =
+        reader.onload = function (e) {
+          document.getElementById(`source-thumbnail-${fieldName}`).src =
             e.target.result;
-          document.getElementById(`image-link-${fieldName}`).href =
+          document.getElementById(`source-link-${fieldName}`).href =
             e.target.result;
         };
         reader.readAsDataURL(this.files[0]);

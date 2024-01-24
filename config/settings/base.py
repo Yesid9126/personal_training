@@ -88,7 +88,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # "personal_training.files",
     "personal_training.users",
-    # "personal_training.courses",
+    "personal_training.courses",
     "personal_training.home",
     "personal_training.contactus",
     "personal_training.negocio",

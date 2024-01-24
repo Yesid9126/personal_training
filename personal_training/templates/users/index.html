@@ -106,11 +106,11 @@
 {% endif %}
 <!-- End Hero Slider Area -->
 <!-- Start Expertise Area -->
-<section class="expertise-area pt-100 pb-70">
+{% comment %} <section class="expertise-area pt-100 pb-70">
   <div class="container">
     <div class="section-title">
-      {% if home and home.title2 %}
-      <h2>{{ home.title2 }}</h2>
+      {% if home and home.title1 %}
+      <h2>{{ home.title1 }}</h2>
       {% else %}
       <h2>Our Main Areas of Expertise</h2>
       {% endif %}
@@ -205,7 +205,7 @@
     </div>
     {% endif %}
   </div>
-</section>
+</section> {% endcomment %}
 <!-- End Expertise Area -->
 <!-- Start About Us Area -->
 {% comment %}
@@ -291,8 +291,8 @@
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="why-choose-us-content">
-          {% if home and home.title3 %}
-          <h2>{{ home.title3 }}</h2>
+          {% if home and home.title2 %}
+          <h2>{{ home.title2 }}</h2>
           {% else %}
           <h2>The Nutrition Professionals</h2>
           {% endif %} {% if home and home.ts_points %}
@@ -387,82 +387,108 @@
   <div class="container">
     <div class="section-title">
       {% comment %} <span>What We Offer</span> {% endcomment %}
-      <h2>Our Diet & Nutrition Services</h2>
+      {% if home and home.title3 %}
+      <h2>{{ home.title3 }}</h2>
+      {% else %}
+      <h2>Our Diet & Nutrition Courses</h2>
+      {% endif %}
     </div>
-    <div class="owl-carousel owl-theme what-we-offer-slider">
-      <div class="single-what-we-offer">
-        <a href="services-details.html">
-          <img
-            src="{% static 'images/what-we-offer/what-we-offer-1.jpg' %}"
-            alt="Image"
-          />
-        </a>
-        <div class="what-we-offer-content">
-          <h3>
-            <a href="services-details.html">Nutrition Response Testing</a>
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna.
-          </p>
-          <a href="services-details.html" class="read-more">Read More</a>
+      {% if courses %}
+      <div class="owl-carousel owl-theme what-we-offer-slider">
+        {% for course in courses %}
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img
+              src="{{ course.image.url }}"
+              alt="Image"
+            />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">{{ course.name }}</a>
+            </h3>
+            <p>{{ course.description }}</p>
+            <a href="services-details.html" class="read-more">Go to Course</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="owl-carousel owl-theme what-we-offer-slider">
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img
+              src="{% static 'images/what-we-offer/what-we-offer-1.jpg' %}"
+              alt="Image"
+            />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Nutrition Response Testing</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Go to Course</a>
+          </div>
+        </div>
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img
+              src="{% static 'images/what-we-offer/what-we-offer-2.jpg' %}"
+              alt="Image"
+            />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Weight Loss Program</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img
+              src="{% static 'images/what-we-offer/what-we-offer-3.jpg' %}"
+              alt="Image"
+            />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Nutrition Response Testing</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="single-what-we-offer">
+          <a href="services-details.html">
+            <img
+              src="{% static 'images/what-we-offer/what-we-offer-4.jpg' %}"
+              alt="Image"
+            />
+          </a>
+          <div class="what-we-offer-content">
+            <h3>
+              <a href="services-details.html">Clinical Nutrition</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna.
+            </p>
+            <a href="services-details.html" class="read-more">Read More</a>
+          </div>
         </div>
       </div>
-      <div class="single-what-we-offer">
-        <a href="services-details.html">
-          <img
-            src="{% static 'images/what-we-offer/what-we-offer-2.jpg' %}"
-            alt="Image"
-          />
-        </a>
-        <div class="what-we-offer-content">
-          <h3>
-            <a href="services-details.html">Weight Loss Program</a>
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna.
-          </p>
-          <a href="services-details.html" class="read-more">Read More</a>
-        </div>
-      </div>
-      <div class="single-what-we-offer">
-        <a href="services-details.html">
-          <img
-            src="{% static 'images/what-we-offer/what-we-offer-3.jpg' %}"
-            alt="Image"
-          />
-        </a>
-        <div class="what-we-offer-content">
-          <h3>
-            <a href="services-details.html">Nutrition Response Testing</a>
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna.
-          </p>
-          <a href="services-details.html" class="read-more">Read More</a>
-        </div>
-      </div>
-      <div class="single-what-we-offer">
-        <a href="services-details.html">
-          <img
-            src="{% static 'images/what-we-offer/what-we-offer-4.jpg' %}"
-            alt="Image"
-          />
-        </a>
-        <div class="what-we-offer-content">
-          <h3>
-            <a href="services-details.html">Clinical Nutrition</a>
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna.
-          </p>
-          <a href="services-details.html" class="read-more">Read More</a>
-        </div>
-      </div>
-    </div>
+      {% endif %}
   </div>
 </section>
 <!-- End What We Offer Area -->
@@ -674,7 +700,11 @@
   <div class="container">
     <div class="section-title">
       {% comment %} <span>Our Experts</span> {% endcomment %}
+      {% if home and home.title5 %}
+      <h2>{{ home.title5 }}</h2>
+      {% else %}
       <h2>Diet & Nutrition Experts</h2>
+      {% endif %}
     </div>
     <div class="owl-carousel owl-theme team-slider">
       <div class="single-team">

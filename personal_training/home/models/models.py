@@ -20,13 +20,13 @@ from personal_training.utils.models import TrainingModel
 
 class Home(TrainingModel):
     identifier = models.CharField(max_length=255)
-    title1 = models.CharField(max_length=255)
+    # title1 = models.CharField(max_length=255)
     title2 = models.CharField(max_length=255)
+    image2 = models.ImageField(upload_to="home/seccion2", null=True, blank=True)
     title3 = models.CharField(max_length=255)
-    image3 = models.ImageField(upload_to="home/seccion3")
     title4 = models.CharField(max_length=255)
     description4 = models.TextField()
-    titl5 = models.CharField(max_length=255)
+    title5 = models.CharField(max_length=255)
 
     def __str__(self):
         return f"{self.identifier if self.identifier else 'Sin identificador'}"
@@ -38,36 +38,39 @@ class Home(TrainingModel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         try:
-            self.old_file_path = os.path.join(settings.MEDIA_ROOT, self.image3.name)
+            self.old_file_path = os.path.join(settings.MEDIA_ROOT, self.image2.name)
         except Exception as error:  # pylint: disable=broad-except
             logging.error(error)
 
-    @display(description=_("Preview"))
+    @display(description=_("Preview Image"))
     def my_image_thumbnail(self):
-        return get_template("files/my_image_thumbnail_template.html").render(
+        return get_template("files/my_source_thumbnail_template.html").render(
             {
-                "field_name": "image3",
+                "image": True,
+                "video": False,
+                "audio": False,
+                "field_name": "image2",
                 "model_name": "home",
                 "field_description": "title3",
-                "src": self.image3.url if self.image3 else None,
+                "src": self.image2.url if self.image2 else None,
             }
         )
 
     def save(self, *args, **kwargs):
         try:
-            file_path = os.path.join(settings.MEDIA_ROOT, self.image3.name)
-            super().save(*args, **kwargs)
+            file_path = os.path.join(settings.MEDIA_ROOT, self.image2.name)
             if hasattr(self, "old_file_path") and self.old_file_path != file_path:
                 # Al cambiar el nombre del archivo, borra el archivo del sistema de archivos
                 if os.path.exists(self.old_file_path):
                     shutil.move(self.old_file_path, file_path)
         except Exception as error:  # pylint: disable=broad-except
             logging.error(error)
+        super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
         super().delete(*args, **kwargs)
         # Al eliminar el modelo Archivo, borra el archivo del sistema de archivos
-        self.image3.delete()
+        self.image2.delete()
 
 
 class Carousel1(TrainingModel):
@@ -90,10 +93,13 @@ class Carousel1(TrainingModel):
     def __str__(self):
         return f"{self.pk}"
 
-    @display(description=_("Preview"))
+    @display(description=_("Preview Image"))
     def my_image_thumbnail(self):
-        return get_template("files/my_image_thumbnail_template.html").render(
+        return get_template("files/my_source_thumbnail_template.html").render(
             {
+                "image": True,
+                "video": False,
+                "audio": False,
                 "field_name": "image",
                 "model_name": "carousel1",
                 "field_description": "description",
@@ -118,54 +124,57 @@ class Carousel1(TrainingModel):
         self.image.delete()
 
 
-class Carousel2(TrainingModel):
-    home = models.ForeignKey(Home, on_delete=models.CASCADE, related_name="carousels2")
-    position = models.PositiveIntegerField()
-    title = models.CharField(max_length=255, blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    image = models.ImageField(upload_to="home/carousel2")  # 550 x 400
+# class Carousel2(TrainingModel):
+#     home = models.ForeignKey(Home, on_delete=models.CASCADE, related_name="carousels2")
+#     position = models.PositiveIntegerField()
+#     title = models.CharField(max_length=255, blank=True, null=True)
+#     description = models.TextField(blank=True, null=True)
+#     image = models.ImageField(upload_to="home/carousel2")  # 550 x 400
 
-    class Meta:
-        verbose_name = "Elementos carusel segunda seccion"
-        verbose_name_plural = "Elementos carusel segunda seccion"
-        ordering = ["position"]
+#     class Meta:
+#         verbose_name = "Elementos carusel segunda seccion"
+#         verbose_name_plural = "Elementos carusel segunda seccion"
+#         ordering = ["position"]
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        try:
-            self.old_file_path = os.path.join(settings.MEDIA_ROOT, self.image.name)
-        except Exception as error:  # pylint: disable=broad-except
-            logging.error(error)
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         try:
+#             self.old_file_path = os.path.join(settings.MEDIA_ROOT, self.image.name)
+#         except Exception as error:  # pylint: disable=broad-except
+#             logging.error(error)
 
-    def __str__(self):
-        return f"{self.pk}"
+#     def __str__(self):
+#         return f"{self.pk}"
 
-    @display(description=_("Preview"))
-    def my_image_thumbnail(self):
-        return get_template("files/my_image_thumbnail_template.html").render(
-            {
-                "field_name": "image",
-                "model_name": "carousel2",
-                "field_description": "description",
-                "src": self.image.url if self.image else None,
-            }
-        )
+#     @display(description=_("Preview Image"))
+#     def my_image_thumbnail(self):
+#         return get_template("files/my_source_thumbnail_template.html").render(
+#             {
+#                 "image": True,
+#                 "video": False,
+#                 "audio": False,
+#                 "field_name": "image",
+#                 "model_name": "carousel2",
+#                 "field_description": "description",
+#                 "src": self.image.url if self.image else None,
+#             }
+#         )
 
-    def save(self, *args, **kwargs):
-        try:
-            file_path = os.path.join(settings.MEDIA_ROOT, self.image.name)
-            super().save(*args, **kwargs)
-            if hasattr(self, "old_file_path") and self.old_file_path != file_path:
-                # Al cambiar el nombre del archivo, borra el archivo del sistema de archivos
-                if os.path.exists(self.old_file_path):
-                    shutil.move(self.old_file_path, file_path)
-        except Exception as error:  # pylint: disable=broad-except
-            logging.error(error)
+#     def save(self, *args, **kwargs):
+#         try:
+#             file_path = os.path.join(settings.MEDIA_ROOT, self.image.name)
+#             super().save(*args, **kwargs)
+#             if hasattr(self, "old_file_path") and self.old_file_path != file_path:
+#                 # Al cambiar el nombre del archivo, borra el archivo del sistema de archivos
+#                 if os.path.exists(self.old_file_path):
+#                     shutil.move(self.old_file_path, file_path)
+#         except Exception as error:  # pylint: disable=broad-except
+#             logging.error(error)
 
-    def delete(self, *args, **kwargs):
-        super().delete(*args, **kwargs)
-        # Al eliminar el modelo Archivo, borra el archivo del sistema de archivos
-        self.image.delete()
+#     def delete(self, *args, **kwargs):
+#         super().delete(*args, **kwargs)
+#         # Al eliminar el modelo Archivo, borra el archivo del sistema de archivos
+#         self.image.delete()
 
 
 class Point3(TrainingModel):
@@ -205,10 +214,13 @@ class Carousel4(TrainingModel):
     def __str__(self):
         return f"{self.pk}"
 
-    @display(description=_("Preview"))
+    @display(description=_("Preview Image"))
     def my_image_thumbnail(self):
-        return get_template("files/my_image_thumbnail_template.html").render(
+        return get_template("files/my_source_thumbnail_template.html").render(
             {
+                "image": True,
+                "video": False,
+                "audio": False,
                 "field_name": "image",
                 "model_name": "carousel4",
                 "field_description": "description",

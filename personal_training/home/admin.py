@@ -2,7 +2,7 @@
 from django.contrib import admin
 
 # Models
-from personal_training.home.models.models import Carousel1, Carousel2, Carousel4, Home, Point3
+from personal_training.home.models.models import Carousel1, Carousel4, Home, Point3
 
 
 @admin.register(Home)
@@ -12,7 +12,7 @@ class IdentifierAdmin(admin.ModelAdmin):
 
     def delete_queryset(self, request, queryset):
         for obj in queryset:
-            obj.image3.delete()
+            obj.image2.delete()
         return super().delete_queryset(request, queryset)
 
 
@@ -27,15 +27,15 @@ class Carousel1Admin(admin.ModelAdmin):
         return super().delete_queryset(request, queryset)
 
 
-@admin.register(Carousel2)
-class Carousel2Admin(admin.ModelAdmin):
-    list_display = ["pk", "title", "description", "image"]
-    readonly_fields = ["my_image_thumbnail"]
+# @admin.register(Carousel2)
+# class Carousel2Admin(admin.ModelAdmin):
+#     list_display = ["pk", "title", "description", "image"]
+#     readonly_fields = ["my_image_thumbnail"]
 
-    def delete_queryset(self, request, queryset):
-        for obj in queryset:
-            obj.image.delete()
-        return super().delete_queryset(request, queryset)
+#     def delete_queryset(self, request, queryset):
+#         for obj in queryset:
+#             obj.image.delete()
+#         return super().delete_queryset(request, queryset)
 
 
 @admin.register(Point3)
