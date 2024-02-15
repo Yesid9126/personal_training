@@ -12,6 +12,7 @@ from django.views.generic import TemplateView
 
 # Views
 from personal_training.users import views as user_views
+from personal_training.users.api.views import update_cart
 
 app_name = "users"
 urlpatterns = [
@@ -27,4 +28,6 @@ urlpatterns = [
     path("password_reset/done/", PasswordResetDoneView.as_view(), name="password_reset_done"),
     path("reset/<uidb64>/<token>/", PasswordResetConfirmView.as_view(), name="password_reset_confirm"),
     path("reset/done/", PasswordResetCompleteView.as_view(), name="password_reset_complete"),
+    path("update-cart/", update_cart, name="update_cart"),
+    path("cart/", user_views.CartView.as_view(), name="cart"),
 ]

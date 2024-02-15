@@ -2,6 +2,8 @@ from django.db.models import Prefetch
 
 from personal_training.contactus.models.models import Contacts
 from personal_training.negocio.models.models import FollowUs, Schedule, Tags, TimeSchedule
+from personal_training.users.models.checkouts import Cart
+from personal_training.users.models.users import User
 
 
 def settings_context(request):
@@ -12,4 +14,11 @@ def settings_context(request):
     followus = FollowUs.objects.first()
     tags = Tags.objects.all().values()
     # print(tags)
-    return {"contacts": contacts, "days": schedule, "socials": followus, "tags": tags}
+    if not isinstance(request.user, User):
+        cart = None
+    elif not hasattr(request.user, "cart"):
+        cart = Cart.objects.create(user=request.user)
+    else:
+        cart = request.user.cart
+    cart_courses = list(cart.courses.all().values_list("slug_name", flat=True)) if cart else []
+    return {"contacts": contacts, "days": schedule, "socials": followus, "tags": tags, "cart_courses": cart_courses}

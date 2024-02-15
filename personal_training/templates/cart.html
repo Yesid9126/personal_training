@@ -1,0 +1,96 @@
+{% extends "personal_training_base.html" %} {% load static %} {% block content%}
+<section class="shopping-cart-area ptb-100">
+  <div class="container">
+    <div class="cart-controller">
+      <div class="cart-table table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Trash</th>
+              <th scope="col">Image</th>
+              <th scope="col">Product name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for course in cart.courses %}
+            <tr>
+              <td class="trash">
+                <button class="remove" id="{{ course.slug_name }}">
+                  <i class="bx bx-trash"></i>
+                </button>
+              </td>
+
+              <td class="product-thumbnail">
+                <a href="product-details.html">
+                  <img src="{{ course.image.url }}" alt="Image" />
+                </a>
+              </td>
+
+              <td class="product-name">
+                <a href="product-details.html">{{ course.name }}</a>
+              </td>
+
+              <td class="product-price">
+                <span class="unit-amount">${{ course.price }}</span>
+              </td>
+
+              <td class="product-quantity">
+                <div class="input-counter">
+                  <input type="text" value="1" readonly />
+                </div>
+              </td>
+
+              <td class="product-subtotal">
+                <span class="subtotal-amount">${{ course.price }}</span>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="coupon-cart">
+        <div class="row">
+          <div class="col-lg-8 col-sm-7">
+            <div class="form-group mb-0">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Coupon code"
+              />
+              <a href="#" class="default-btn"> Apply Coupon </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-sm-5">
+            <a href="#" class="default-btn update-cart">
+              <span>Update Cart</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-totals">
+      <h3 class="cart-checkout-title">Checkout Summary</h3>
+
+      <ul>
+        <li>Subtotal <span>$240.00</span></li>
+        <li>Shipping <span>$00.00</span></li>
+        <li>Total <span>$240.00</span></li>
+        <li>
+          <b>Payable Total</b> <span><b>$240.00</b></span>
+        </li>
+      </ul>
+
+      <a href="checkout.html" class="default-btn">
+        <span>Proceed to checkout</span>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock content %}

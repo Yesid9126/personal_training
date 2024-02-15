@@ -1,8 +1,23 @@
 # views.py
 # from django.db.models import Prefetch
+from django.db.models import Prefetch
 from django.views.generic import TemplateView
 
-from personal_training.courses.models.models import Course
+from personal_training.courses.models.models import Class, Course
+from personal_training.negocio.models.models import Tags
+
+
+class CourseDetailView(TemplateView):
+    template_name = "course-detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Add custom data to the context
+        context["course"] = Course.objects.prefetch_related(
+            Prefetch("classes", queryset=Class.objects.all(), to_attr="set_classes"),
+            Prefetch("tags", queryset=Tags.objects.all(), to_attr="set_tags"),
+        ).get(slug_name=kwargs["slug_name"])
+        return context
 
 
 class CoursesView(TemplateView):
@@ -39,15 +54,19 @@ class CoursesView(TemplateView):
         ]
         context["page_next"] = {
             "flat": context["pages"][-1]["number"] < count // page_size + 1,
-            "url": f"""?page_number={context["pages"][-1]["number"]+1}"""
-            if not query_params
-            else f"""&page_number={context["pages"][-1]["number"]+1}""",
+            "url": (
+                f"""?page_number={context["pages"][-1]["number"]+1}"""
+                if not query_params
+                else f"""&page_number={context["pages"][-1]["number"]+1}"""
+            ),
         }
         context["page_previous"] = {
             "flat": page_number > 2,
-            "url": f"""?page_number={context["pages"][0]["number"]-1}"""
-            if not query_params
-            else f"""&page_number={context["pages"][0]["number"]-1}""",
+            "url": (
+                f"""?page_number={context["pages"][0]["number"]-1}"""
+                if not query_params
+                else f"""&page_number={context["pages"][0]["number"]-1}"""
+            ),
         }
 
         context["courses"] = list(Course.objects.filter(pk__in=course_pks).order_by(order_by)[off_set : off_set + page_size])

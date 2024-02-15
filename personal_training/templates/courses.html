@@ -85,18 +85,23 @@
             <ul>
               <li>
                 <a
-                  href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
+                  href="{% url 'courses:detail' course.slug_name %}"
                 >
                   <i class="bx bx-show-alt"></i>
                 </a>
               </li>
               <li>
-                <a class="default-btn" href="shopping-cart.html">
+                  {% if course.slug_name in cart_courses %}
+                <button class="default-btn add-to-cart" id="{{ course.slug_name }}" style="background-color: red">
+                  <i class="bx bx-cart"></i>
+                  Remove from Cart
+                </button>
+                  {% else %}
+                <button class="default-btn add-to-cart" id="{{ course.slug_name }}">
                   <i class="bx bx-cart"></i>
                   Add to Cart
-                </a>
+                </button>
+                  {% endif %}
               </li>
               <li>
                 <a href="#">
