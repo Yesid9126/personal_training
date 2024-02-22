@@ -164,6 +164,7 @@ class Class(TrainingModel):
                     shutil.move(self.old_file_path, file_path)
         except Exception as error:  # pylint: disable=broad-except
             logging.error(error)
+            super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
         super().delete(*args, **kwargs)
