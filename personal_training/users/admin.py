@@ -8,7 +8,7 @@ from django_celery_beat.models import ClockedSchedule, CrontabSchedule, Interval
 from personal_training.users.forms import UserChangeForm
 
 # Models
-from personal_training.users.models import User
+from personal_training.users.models import Checkout, Coupon, User
 
 try:
     from rest_framework.authtoken.models import TokenProxy as DRFToken
@@ -38,6 +38,28 @@ class UserAdmin(auth_admin.UserAdmin):
     form = UserChangeForm
     list_display = ["username", "email", "is_superuser"]
     search_fields = ["name"]
+
+
+@admin.register(Coupon)
+class CouponAdmin(admin.ModelAdmin):
+    list_display = ["code", "percent", "is_active"]
+    list_filter = ["is_active"]
+    search_fields = ["code"]
+
+
+@admin.register(Checkout)
+class CheckoutAdmin(admin.ModelAdmin):
+    list_display = ["reference", "email", "is_paid", "created"]
+    list_filter = ["is_paid"]
+
+    def email(self, obj):
+        return obj.historical_cart_json["user"]["email"]
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
 
 
 admin.site.unregister(auth.models.Group)

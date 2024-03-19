@@ -1,6 +1,7 @@
 """
 Base settings to build other settings files upon.
 """
+
 from pathlib import Path
 
 import environ
@@ -322,3 +323,7 @@ SPECTACULAR_SETTINGS = {
 # Your stuff...
 # ------------------------------------------------------------------------------
 LOGOUT_REDIRECT_URL = "users:login"
+
+WOMPI_PUBLIC_KEY = env("WOMPI_PUBLIC_KEY")
+WOMPI_PRIVATE_KEY = env("WOMPI_PRIVATE_KEY")
+WOMPI_INTEGRITY_KEY = env("WOMPI_INTEGRITY_KEY")

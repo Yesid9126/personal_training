@@ -61,15 +61,13 @@
                 type="text"
                 class="form-control"
                 placeholder="Coupon code"
+                value="{{ cart.coupon.code }}"
+                id="coupon_code"
               />
-              <a href="#" class="default-btn"> Apply Coupon </a>
+              <button class="default-btn" onclick="coupon(this)">
+                Apply Coupon
+              </button>
             </div>
-          </div>
-
-          <div class="col-lg-4 col-sm-5">
-            <a href="#" class="default-btn update-cart">
-              <span>Update Cart</span>
-            </a>
           </div>
         </div>
       </div>
@@ -79,18 +77,28 @@
       <h3 class="cart-checkout-title">Checkout Summary</h3>
 
       <ul>
-        <li>Subtotal <span>$240.00</span></li>
+        <li>Subtotal <span>${{ cart.total }}</span></li>
         <li>Shipping <span>$00.00</span></li>
-        <li>Total <span>$240.00</span></li>
+        <li>Total <span>${{ cart.total }}</span></li>
+        {% if cart.coupon %}
+        <li>Cupon <span>{{ cart.coupon.percent }}%</span></li>
+        {% endif %}
         <li>
-          <b>Payable Total</b> <span><b>$240.00</b></span>
+          <b>Total a pagar</b> <span><b>${{ cart.total_with_coupon }}</b></span>
         </li>
       </ul>
 
-      <a href="checkout.html" class="default-btn">
-        <span>Proceed to checkout</span>
+      <a href="{% url 'users:checkout' %}" class="default-btn">
+        <span>Pagar</span>
       </a>
     </div>
   </div>
 </section>
-{% endblock content %}
+{% endblock content %} {% block scripts %}
+<script>
+  function coupon(e) {
+    var coupon_code = document.getElementById("coupon_code").value;
+    window.location = "{% url 'users:cart' %}" + `?coupon_code=${coupon_code}`;
+  }
+</script>
+{% endblock %}

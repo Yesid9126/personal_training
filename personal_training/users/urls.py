@@ -30,4 +30,5 @@ urlpatterns = [
     path("reset/done/", PasswordResetCompleteView.as_view(), name="password_reset_complete"),
     path("update-cart/", update_cart, name="update_cart"),
     path("cart/", user_views.CartView.as_view(), name="cart"),
+    path("cart/checkout/", user_views.CartWompiView.as_view(), name="checkout"),
 ]

@@ -1,0 +1,23 @@
+{% extends "personal_training_base.html" %} {% load static %} {% block content%}
+<h1>Redirecting to Wompi</h1>
+
+<form action="https://checkout.wompi.co/p/" method="GET" id="form">
+  <input type="hidden" name="public-key" value="{{ public_key }}" />
+  <input type="hidden" name="currency" value="{{ currency }}" />
+  <input type="hidden" name="amount-in-cents" value="{{ amount }}" />
+  <input type="hidden" name="reference" value="{{ reference }}" />
+  <input
+    type="hidden"
+    name="signature:integrity"
+    value="{{ signature_integrity }}"
+  />
+  <input type="hidden" name="redirect-url" value="{{ redirect_url }}" />
+</form>
+{% endblock %} {% block scripts %}
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    let form = document.querySelector("#form");
+    form.submit();
+  });
+</script>
+{% endblock %}
